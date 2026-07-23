@@ -1,0 +1,440 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Crazy Creek · Progress & Roadmap</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap');
+
+  :root{
+    --navy:#12263A;
+    --navy-2:#1F3A5F;
+    --teal:#2E8B83;
+    --teal-bright:#3FB0A5;
+    --gold:#C9A24B;
+    --gold-soft:#E4C878;
+    --paper:#F6F3EC;
+    --paper-2:#EFEAE0;
+    --ink:#1B2733;
+    --muted:#5A6672;
+    --line:rgba(18,38,58,.12);
+    --card:#FFFFFF;
+    --shadow:0 18px 50px -20px rgba(18,38,58,.35);
+    --sans:'Inter',system-ui,-apple-system,sans-serif;
+    --serif:'Fraunces',Georgia,serif;
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{
+    font-family:var(--sans);
+    background:#0c1826;
+    color:var(--ink);
+    display:flex;align-items:center;justify-content:center;
+    min-height:100vh;overflow:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  /* Stage scales the 16:9 deck to fit the viewport */
+  #stage{
+    position:relative;
+    width:min(96vw, calc((100vh - 24px) * 16 / 9));
+    aspect-ratio:16/9;
+    border-radius:16px;
+    overflow:hidden;
+    box-shadow:0 40px 120px -30px rgba(0,0,0,.7);
+    background:var(--paper);
+  }
+
+  .slide{
+    position:absolute;inset:0;
+    padding:clamp(28px,4.2vw,64px) clamp(34px,5vw,78px);
+    display:flex;flex-direction:column;
+    opacity:0;visibility:hidden;
+    transform:translateY(14px);
+    transition:opacity .5s ease, transform .5s ease, visibility .5s;
+    background:var(--paper);
+  }
+  .slide.active{opacity:1;visibility:visible;transform:none;z-index:2}
+
+  /* running header */
+  .runhead{
+    display:flex;justify-content:space-between;align-items:center;
+    font-size:clamp(9px,1vw,12px);letter-spacing:.14em;text-transform:uppercase;
+    color:var(--muted);font-weight:600;margin-bottom:auto;
+  }
+  .runhead .brand{color:var(--teal);font-weight:700}
+  .runfoot{
+    display:flex;justify-content:space-between;align-items:center;
+    font-size:clamp(9px,.95vw,11px);color:var(--muted);
+    letter-spacing:.06em;margin-top:auto;padding-top:14px;
+  }
+
+  h1{font-family:var(--serif);font-weight:600;line-height:1.02;letter-spacing:-.01em}
+  h2{font-family:var(--serif);font-weight:600;color:var(--navy-2);
+     font-size:clamp(24px,3.4vw,46px);line-height:1.05;letter-spacing:-.01em}
+  .kicker{font-size:clamp(10px,1.05vw,13px);letter-spacing:.2em;text-transform:uppercase;
+     color:var(--teal);font-weight:700;margin-bottom:14px;display:flex;align-items:center;gap:10px}
+  .kicker::before{content:"";width:26px;height:2px;background:var(--gold);display:inline-block}
+  .lead{color:var(--muted);font-size:clamp(13px,1.45vw,19px);line-height:1.5;max-width:60ch}
+
+  .body{flex:1;display:flex;flex-direction:column;justify-content:center;gap:clamp(10px,1.5vw,20px)}
+
+  /* ---------- Cover ---------- */
+  #s1{background:
+      radial-gradient(120% 90% at 85% 15%, rgba(63,176,165,.22), transparent 55%),
+      radial-gradient(90% 80% at 10% 95%, rgba(201,162,75,.16), transparent 50%),
+      linear-gradient(135deg,#12263A 0%, #1B3A57 55%, #17324B 100%);
+    color:#EAF1F4;justify-content:center;}
+  #s1 .runhead{color:rgba(234,241,244,.7)}
+  #s1 .runhead .brand{color:var(--teal-bright)}
+  #s1 h1{font-size:clamp(38px,6.6vw,88px);color:#fff}
+  #s1 .sub{font-family:var(--serif);font-style:italic;font-weight:500;
+      color:var(--gold-soft);font-size:clamp(20px,3.2vw,40px);margin-top:6px}
+  #s1 .cover-meta{margin-top:26px;color:rgba(234,241,244,.82);font-size:clamp(12px,1.4vw,17px);
+      letter-spacing:.04em;line-height:1.7}
+  #s1 .cover-kicker{color:var(--teal-bright);font-size:clamp(10px,1.2vw,14px);
+      letter-spacing:.24em;text-transform:uppercase;font-weight:700;margin-bottom:22px}
+  #s1 .runfoot{color:rgba(234,241,244,.55)}
+  .steam{position:absolute;right:-40px;bottom:-40px;width:46%;opacity:.16;pointer-events:none}
+
+  /* ---------- Stat tiles ---------- */
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(12px,1.5vw,22px)}
+  .stat{background:var(--card);border:1px solid var(--line);border-radius:14px;
+     padding:clamp(16px,1.8vw,26px);box-shadow:var(--shadow);position:relative;overflow:hidden}
+  .stat::before{content:"";position:absolute;top:0;left:0;width:100%;height:4px;
+     background:linear-gradient(90deg,var(--teal),var(--gold))}
+  .stat .num{font-family:var(--serif);font-weight:700;color:var(--navy-2);
+     font-size:clamp(30px,4.4vw,58px);line-height:1}
+  .stat .lbl{color:var(--muted);font-size:clamp(11px,1.15vw,14px);margin-top:8px;font-weight:500;line-height:1.35}
+
+  /* ---------- generic lists ---------- */
+  ul.checks{list-style:none;display:flex;flex-direction:column;gap:clamp(9px,1.15vw,15px)}
+  ul.checks li{display:flex;gap:12px;align-items:flex-start;font-size:clamp(12px,1.28vw,17px);
+     line-height:1.4;color:var(--ink)}
+  ul.checks li b{color:var(--navy-2)}
+  .tick{flex:none;width:22px;height:22px;margin-top:1px;color:var(--teal)}
+
+  .split{display:grid;grid-template-columns:1.25fr .95fr;gap:clamp(18px,2.4vw,40px);align-items:center;flex:1}
+  .highlight{background:linear-gradient(150deg,#173650,#12263A);color:#EAF1F4;border-radius:16px;
+     padding:clamp(18px,2vw,30px);box-shadow:var(--shadow);position:relative;overflow:hidden}
+  .highlight::after{content:"";position:absolute;inset:0;
+     background:radial-gradient(80% 70% at 80% 10%, rgba(63,176,165,.25), transparent 60%)}
+  .highlight .hl-k{position:relative;color:var(--teal-bright);font-weight:700;letter-spacing:.16em;
+     text-transform:uppercase;font-size:clamp(10px,1.05vw,12px);margin-bottom:10px}
+  .highlight .hl-big{position:relative;font-family:var(--serif);font-size:clamp(22px,3vw,38px);
+     font-weight:600;line-height:1.05;color:#fff}
+  .highlight p{position:relative;color:rgba(234,241,244,.85);font-size:clamp(11px,1.2vw,15px);
+     line-height:1.5;margin-top:12px}
+  .leadpills{position:relative;display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+  .leadpills span{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.16);
+     border-radius:999px;padding:5px 12px;font-size:clamp(10px,1.1vw,13px);font-weight:500}
+
+  /* ---------- Recommendation cards ---------- */
+  .recgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(10px,1.25vw,16px);flex:1;align-content:center}
+  .rec{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:clamp(13px,1.4vw,20px);
+     box-shadow:0 10px 30px -18px rgba(18,38,58,.4);display:flex;flex-direction:column;gap:8px;position:relative}
+  .rec .rn{font-family:var(--serif);font-weight:700;color:var(--gold);font-size:clamp(15px,1.6vw,20px)}
+  .rec .ic{width:26px;height:26px;color:var(--teal);position:absolute;top:clamp(13px,1.4vw,20px);right:clamp(13px,1.4vw,20px)}
+  .rec h3{font-size:clamp(12.5px,1.32vw,17px);color:var(--navy-2);font-weight:700;line-height:1.15}
+  .rec p{font-size:clamp(10.5px,1.08vw,13.5px);color:var(--muted);line-height:1.4}
+  .rec.gate{background:linear-gradient(150deg,#173650,#12263A);color:#EAF1F4}
+  .rec.gate h3{color:#fff}.rec.gate p{color:rgba(234,241,244,.82)}.rec.gate .rn{color:var(--gold-soft)}
+  .rec.gate .ic{color:var(--teal-bright)}
+  .rec .tag{margin-top:auto;font-size:clamp(9px,.95vw,11px);font-weight:700;letter-spacing:.08em;
+     text-transform:uppercase;color:var(--teal)}
+  .rec.gate .tag{color:var(--gold-soft)}
+
+  /* ---------- Roadmap ---------- */
+  .road{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,1.8vw,26px);flex:1;align-content:center}
+  .phase{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;
+     box-shadow:var(--shadow);display:flex;flex-direction:column}
+  .phase .cap{padding:clamp(12px,1.4vw,18px) clamp(14px,1.5vw,20px);color:#fff;font-weight:700}
+  .phase:nth-child(1) .cap{background:linear-gradient(120deg,var(--teal),var(--teal-bright))}
+  .phase:nth-child(2) .cap{background:linear-gradient(120deg,#1F3A5F,#2E8B83)}
+  .phase:nth-child(3) .cap{background:linear-gradient(120deg,#12263A,#1F3A5F)}
+  .phase .cap .p-when{font-size:clamp(10px,1.05vw,13px);letter-spacing:.14em;text-transform:uppercase;opacity:.85}
+  .phase .cap .p-title{font-family:var(--serif);font-size:clamp(16px,1.9vw,25px);margin-top:3px}
+  .phase ul{list-style:none;padding:clamp(12px,1.4vw,20px);display:flex;flex-direction:column;gap:9px}
+  .phase li{font-size:clamp(10.5px,1.12vw,14px);color:var(--ink);line-height:1.35;padding-left:16px;position:relative}
+  .phase li::before{content:"";position:absolute;left:0;top:8px;width:6px;height:6px;border-radius:50%;background:var(--gold)}
+
+  /* ---------- Payoff ---------- */
+  .payoff{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(12px,1.6vw,20px)}
+  .pay{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--teal);
+     border-radius:10px;padding:clamp(14px,1.6vw,22px);box-shadow:0 10px 30px -20px rgba(18,38,58,.4)}
+  .pay b{color:var(--navy-2);font-size:clamp(13px,1.35vw,18px);display:block;margin-bottom:5px}
+  .pay span{color:var(--muted);font-size:clamp(11px,1.15vw,14.5px);line-height:1.4}
+
+  /* ---------- Needs ---------- */
+  .needs{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(12px,1.6vw,22px)}
+  .need{display:flex;gap:14px;align-items:flex-start;background:var(--card);border:1px solid var(--line);
+     border-radius:12px;padding:clamp(14px,1.6vw,22px);box-shadow:0 10px 30px -22px rgba(18,38,58,.4)}
+  .need .nnum{flex:none;width:clamp(34px,3.4vw,46px);height:clamp(34px,3.4vw,46px);border-radius:50%;
+     background:linear-gradient(140deg,var(--teal),var(--navy-2));color:#fff;font-family:var(--serif);
+     font-weight:700;display:flex;align-items:center;justify-content:center;font-size:clamp(15px,1.7vw,22px)}
+  .need b{color:var(--navy-2);font-size:clamp(12.5px,1.3vw,17px)}
+  .need p{color:var(--muted);font-size:clamp(10.5px,1.12vw,14px);line-height:1.4;margin-top:3px}
+
+  /* ---------- Closing ---------- */
+  #s9{background:linear-gradient(135deg,#12263A,#1B3A57);color:#EAF1F4;justify-content:center;align-items:flex-start}
+  #s9 .runhead{color:rgba(234,241,244,.7)}#s9 .runhead .brand{color:var(--teal-bright)}
+  #s9 .big{font-family:var(--serif);font-size:clamp(24px,3.7vw,50px);line-height:1.12;font-weight:600;max-width:20ch}
+  #s9 .big em{color:var(--gold-soft);font-style:italic}
+  #s9 .close-sub{color:rgba(234,241,244,.8);font-size:clamp(13px,1.5vw,19px);margin-top:22px;max-width:52ch;line-height:1.55}
+  #s9 .sign{margin-top:30px;color:var(--teal-bright);letter-spacing:.16em;text-transform:uppercase;font-weight:700;font-size:clamp(11px,1.2vw,14px)}
+  #s9 .runfoot{color:rgba(234,241,244,.55)}
+
+  /* ---------- Controls ---------- */
+  #bar{position:absolute;left:0;top:0;height:3px;background:linear-gradient(90deg,var(--teal),var(--gold));z-index:20;transition:width .4s ease}
+  .nav{position:absolute;bottom:14px;right:18px;display:flex;gap:8px;z-index:20}
+  .nav button{width:34px;height:34px;border-radius:9px;border:1px solid var(--line);background:rgba(255,255,255,.85);
+     color:var(--navy-2);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s,transform .2s}
+  .nav button:hover{background:#fff;transform:translateY(-1px)}
+  .nav button:disabled{opacity:.35;cursor:not-allowed}
+  .dots{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);display:flex;gap:7px;z-index:20}
+  .dots i{width:8px;height:8px;border-radius:50%;background:rgba(18,38,58,.22);cursor:pointer;transition:background .2s,width .2s}
+  .dots i.on{background:var(--teal);width:22px;border-radius:5px}
+  .slide.dark ~ .dots i{background:rgba(255,255,255,.3)}
+  #count{position:absolute;bottom:20px;left:22px;z-index:20;font-size:12px;color:var(--muted);font-weight:600;letter-spacing:.08em}
+  .slide#s1 ~ #count,.slide#s9 ~ #count{color:rgba(234,241,244,.6)}
+
+  @media (max-width:640px){
+    .stats,.recgrid{grid-template-columns:repeat(2,1fr)}
+    .road,.payoff,.needs{grid-template-columns:1fr}
+    .split{grid-template-columns:1fr}
+    .nav{bottom:10px}
+  }
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div id="stage" aria-label="Crazy Creek Progress and Roadmap presentation">
+
+  <div id="bar"></div>
+
+  <!-- 1 · COVER -->
+  <section class="slide dark active" id="s1">
+    <div class="runhead"><span class="brand">OPTIMATIC</span><span>Crazy Creek · Progress &amp; Roadmap</span></div>
+    <div>
+      <div class="cover-kicker">Prepared for Jason Siebenga &amp; the Crazy Creek team</div>
+      <h1>Crazy Creek<br>Hot Pools Resort</h1>
+      <div class="sub">Progress &amp; Roadmap</div>
+      <div class="cover-meta">July 23, 2026 &nbsp;·&nbsp; Monthly Sync<br>Prepared by Optimatic</div>
+    </div>
+    <div class="runfoot"><span>CCR Resort Ltd</span><span>Confidential</span></div>
+    <svg class="steam" viewBox="0 0 200 200" fill="none" aria-hidden="true"><path d="M60 180c-20-24-4-44 6-58 9-13 6-28-6-40M100 180c-20-28-2-46 8-60 10-14 7-28-5-40M140 180c-18-22-4-42 6-56 9-12 7-27-4-38" stroke="#3FB0A5" stroke-width="6" stroke-linecap="round"/></svg>
+  </section>
+
+  <!-- 2 · WHERE THINGS STAND -->
+  <section class="slide" id="s2">
+    <div class="runhead"><span class="brand">OPTIMATIC</span><span>Crazy Creek · Progress &amp; Roadmap</span></div>
+    <div class="body">
+      <div>
+        <div class="kicker">Where things stand now</div>
+        <h2>The system is switched on — and already producing leads.</h2>
+        <p class="lead" style="margin-top:12px">Last month we set out to build the commercial infrastructure behind your demand. It is now live and collecting real data. Your proven fundamentals remain the foundation.</p>
+      </div>
+      <div class="stats">
+        <div class="stat"><div class="num">98%</div><div class="lbl">Summer occupancy, earned on organic reputation</div></div>
+        <div class="stat"><div class="num">68</div><div class="lbl">Net Promoter Score, from your own guest surveys</div></div>
+        <div class="stat"><div class="num">24K+</div><div class="lbl">Reachable contacts, migrated &amp; cleaned</div></div>
+        <div class="stat"><div class="num">1M</div><div class="lbl">Views on your top Facebook reel</div></div>
+      </div>
+    </div>
+    <div class="runfoot"><span>CCR Resort Ltd</span><span>July 23, 2026</span></div>
+  </section>
+
+  <!-- 3 · WHAT WE SHIPPED -->
+  <section class="slide" id="s3">
+    <div class="runhead"><span class="brand">OPTIMATIC</span><span>Crazy Creek · Progress &amp; Roadmap</span></div>
+    <div class="body">
+      <div><div class="kicker">What we shipped · last 30 days</div></div>
+      <div class="split">
+        <ul class="checks">
+          <li><svg class="tick" viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Five campaign landing pages are live</b> at listing.crazycreekresort.com</span></li>
+          <li><svg class="tick" viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Full tracking verified live</b> across Google Analytics, Google Ads &amp; the Meta pixel, a lead conversion per campaign</span></li>
+          <li><svg class="tick" viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Heatmaps &amp; session recording</b> on all five pages and the main site</span></li>
+          <li><svg class="tick" viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>CRM connected to Google &amp; Meta</b>, ad performance and Facebook leads in one place</span></li>
+          <li><svg class="tick" viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Guest database migrated &amp; cleaned</b>: two sources into 24,000+ verified contacts</span></li>
+          <li><svg class="tick" viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Audited Jason's Typeform review survey</b> (the export he sent) and mapped the full migration into GHL</span></li>
+        </ul>
+        <div class="highlight">
+          <div class="hl-k">The ads are already working</div>
+          <div class="hl-big">4 new inquiries this week</div>
+          <p>Straight from the paid campaigns on the new landing pages, each captured and tagged by interest, automatically, in your CRM.</p>
+          <div class="leadpills"><span>Alethea</span><span>Christine</span><span>Alana</span><span>Brandy</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="runfoot"><span>CCR Resort Ltd</span><span>July 23, 2026</span></div>
+  </section>
+
+  <!-- 4 · RECOMMENDATIONS -->
+  <section class="slide" id="s4">
+    <div class="runhead"><span class="brand">OPTIMATIC</span><span>Crazy Creek · Progress &amp; Roadmap</span></div>
+    <div class="body">
+      <div><div class="kicker">Our recommendations</div>
+        <h2 style="font-size:clamp(20px,2.6vw,34px)">Seven workstreams, each with a detailed plan behind it.</h2></div>
+      <div class="recgrid">
+        <div class="rec">
+          <svg class="ic" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M3 8h18M8 21h8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          <div class="rn">1</div><h3>Website</h3><p>Quick fixes now to protect ad traffic, then a fast, SEO/AI-ready rebuild this fall.</p><div class="tag">Protect + rebuild</div>
+        </div>
+        <div class="rec">
+          <svg class="ic" viewBox="0 0 24 24" fill="none"><path d="m12 3 2.6 5.6 6.1.7-4.5 4.1 1.2 6L12 16.9 6.6 19.4l1.2-6L3.3 9.3l6.1-.7L12 3Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+          <div class="rn">2</div><h3>Reviews &amp; reputation</h3><p>An automatic review engine: happy guests to Google, unhappy guests to your team first.</p><div class="tag">Start now</div>
+        </div>
+        <div class="rec">
+          <svg class="ic" viewBox="0 0 24 24" fill="none"><path d="M4 17h16M6 17c0-3 2-5 4-6M18 17c0-4-3-7-7-7-1.5 0-3 .5-4 1.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><circle cx="16.5" cy="7.5" r="1.5" fill="currentColor"/></svg>
+          <div class="rn">3</div><h3>Winter Sled-and-Stay</h3><p>Fill Dec–Mar cabin weeks with measurable, marketing-driven bookings.</p><div class="tag">The demand story</div>
+        </div>
+        <div class="rec">
+          <svg class="ic" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="m4 7 8 6 8-6" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+          <div class="rn">4</div><h3>Email &amp; newsletters</h3><p>Two monthly newsletters from your cleaned list, phased from your most engaged guests.</p><div class="tag">Activate the list</div>
+        </div>
+        <div class="rec">
+          <svg class="ic" viewBox="0 0 24 24" fill="none"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+          <div class="rn">5</div><h3>CRM branding refresh</h3><p>A cleaner, on-brand workspace. Email, Facebook &amp; Instagram DMs, all in one screen.</p><div class="tag">One unified inbox</div>
+        </div>
+        <div class="rec">
+          <svg class="ic" viewBox="0 0 24 24" fill="none"><path d="M6 4h3l1.5 4-2 1.5a12 12 0 0 0 6 6l1.5-2 4 1.5V18a2 2 0 0 1-2 2A15 15 0 0 1 4 6a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+          <div class="rn">6</div><h3>AI receptionist</h3><p>Answers calls, books, and routes each caller by interest. In testing, Loom demo available.</p><div class="tag">In testing</div>
+        </div>
+        <div class="rec gate" style="grid-column:span 2">
+          <svg class="ic" viewBox="0 0 24 24" fill="none"><path d="M13 2 4.1 12.9c-.5.6-.1 1.6.7 1.6H11l-1 7.5 8.9-10.9c.5-.6.1-1.6-.7-1.6H12l1-7.5Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+          <div class="rn">7</div><h3>Booking attribution · the one open gate</h3><p>The last piece: connect WebRezPro so every ad dollar traces to a real booking. Held up on their side, so if it is not cleared within days we switch to WebRezPro's official Zapier method and close the loop now.</p><div class="tag">Decision point</div>
+        </div>
+      </div>
+    </div>
+    <div class="runfoot"><span>CCR Resort Ltd</span><span>July 23, 2026</span></div>
+  </section>
+
+  <!-- 5 · ROADMAP -->
+  <section class="slide" id="s5">
+    <div class="runhead"><span class="brand">OPTIMATIC</span><span>Crazy Creek · Progress &amp; Roadmap</span></div>
+    <div class="body">
+      <div><div class="kicker">The roadmap · when it happens</div></div>
+      <div class="road">
+        <div class="phase">
+          <div class="cap"><div class="p-when">Next 30 days</div><div class="p-title">Activate</div></div>
+          <ul>
+            <li>Close booking attribution (WebRezPro, direct or via Zapier)</li>
+            <li>Automated guest journeys &amp; the review engine on</li>
+            <li>Migrate the review survey off Typeform into GHL</li>
+            <li>Ship the website quick fixes</li>
+            <li>First newsletter sends to engaged guests</li>
+            <li>Optimize live ads toward reservations</li>
+          </ul>
+        </div>
+        <div class="phase">
+          <div class="cap"><div class="p-when">Next 60 days</div><div class="p-title">Build the winter story</div></div>
+          <ul>
+            <li>Sled-and-Stay awareness live, creator outreach underway</li>
+            <li>First draft of the seasonal growth dashboard</li>
+            <li>Expand email sends as the domain warms up</li>
+            <li>Website pre-build prep (rankings, redirects, pricing)</li>
+          </ul>
+        </div>
+        <div class="phase">
+          <div class="cap"><div class="p-when">Next 90 days</div><div class="p-title">Shift the demand</div></div>
+          <ul>
+            <li>Winter wake-up campaign to past summer guests</li>
+            <li>Repeat-stay nurture across your guest history</li>
+            <li>Bank-ready dashboard live</li>
+            <li>Fall website rebuild underway</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="runfoot"><span>CCR Resort Ltd</span><span>July 23, 2026</span></div>
+  </section>
+
+  <!-- 6 · BANK-READY PAYOFF -->
+  <section class="slide" id="s6">
+    <div class="runhead"><span class="brand">OPTIMATIC</span><span>Crazy Creek · Progress &amp; Roadmap</span></div>
+    <div class="body">
+      <div><div class="kicker">The bank-ready payoff</div>
+        <h2 style="font-size:clamp(20px,2.7vw,36px)">One dashboard, built for lender scrutiny.</h2></div>
+      <div class="payoff">
+        <div class="pay"><b>Occupancy by season</b><span>Predictable, year-round performance at a glance.</span></div>
+        <div class="pay"><b>Off-season demand shift</b><span>The volume and revenue the winter campaigns generate.</span></div>
+        <div class="pay"><b>Defensible attribution</b><span>Every booking traced to its true source once WebRezPro is live.</span></div>
+        <div class="pay"><b>Inquiry &amp; group funnel</b><span>Pipeline value and stages, visible end to end.</span></div>
+      </div>
+      <p class="lead" style="text-align:center;max-width:70ch;margin:6px auto 0">This is the window where demand becomes legible by season — the precise picture commercial lenders fund against.</p>
+    </div>
+    <div class="runfoot"><span>CCR Resort Ltd</span><span>July 23, 2026</span></div>
+  </section>
+
+  <!-- 7 · WHAT WE NEED -->
+  <section class="slide" id="s7">
+    <div class="runhead"><span class="brand">OPTIMATIC</span><span>Crazy Creek · Progress &amp; Roadmap</span></div>
+    <div class="body">
+      <div><div class="kicker">What we need from you</div>
+        <h2 style="font-size:clamp(20px,2.7vw,36px)">Four keys to switch it all on.</h2></div>
+      <div class="needs">
+        <div class="need"><div class="nnum">1</div><div><b>Connect WebRezPro (Zapier)</b><p>So we can tie ads to real bookings. We will send the exact steps.</p></div></div>
+        <div class="need"><div class="nnum">2</div><div><b>info@thecrazycreek.com email access</b><p>To test the guest journeys and review flows before anything reaches real guests.</p></div></div>
+        <div class="need"><div class="nnum">3</div><div><b>Google Business Profile access</b><p>The one key that switches on the review engine.</p></div></div>
+        <div class="need"><div class="nnum">4</div><div><b>Typeform access</b><p>We have audited the export; access lets us map credentials and fully migrate Typeform into the CRM.</p></div></div>
+      </div>
+      <div style="margin-top:clamp(10px,1.6vw,18px);background:#EAF3F1;border:1px solid #CFE3DF;border-radius:12px;padding:clamp(12px,1.5vw,20px)">
+        <span style="font-weight:700;color:#2E8B83;font-size:clamp(10px,1.1vw,13px);letter-spacing:1px">ALSO HELPFUL, IF YOU CAN</span>
+        <p style="margin-top:5px;color:#1B2733;font-size:clamp(11.5px,1.2vw,15px);line-height:1.45">A short Loom walking us through how you capture Sled-and-Stay guests today, and whether those bookings run through WebRez. That context would be a big help in getting the attribution set up right.</p>
+      </div>
+    </div>
+    <div class="runfoot"><span>CCR Resort Ltd</span><span>July 23, 2026</span></div>
+  </section>
+
+  <!-- 8 · CLOSING -->
+  <section class="slide dark" id="s9">
+    <div class="runhead"><span class="brand">OPTIMATIC</span><span>Crazy Creek · Progress &amp; Roadmap</span></div>
+    <div class="body" style="justify-content:center">
+      <div class="big">Crazy Creek already executes the hardest part: <em>an unforgettable guest experience.</em></div>
+      <div class="close-sub">This roadmap installs the commercial pipeline that makes that demand visible, active, and measurable.</div>
+      <div class="sign">Optimatic &nbsp;·&nbsp; Thank you</div>
+    </div>
+    <div class="runfoot"><span>CCR Resort Ltd</span><span>July 23, 2026</span></div>
+  </section>
+
+  <div id="count">01 / 08</div>
+  <div class="dots" id="dots"></div>
+  <div class="nav">
+    <button id="prev" aria-label="Previous slide"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="m15 18-6-6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    <button id="next" aria-label="Next slide"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="m9 18 6-6-6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+  </div>
+</div>
+
+<script>
+  const slides=[...document.querySelectorAll('.slide')];
+  const dotsWrap=document.getElementById('dots');
+  const bar=document.getElementById('bar');
+  const count=document.getElementById('count');
+  const prev=document.getElementById('prev');
+  const next=document.getElementById('next');
+  let i=0;
+  slides.forEach((_,n)=>{const d=document.createElement('i');if(n===0)d.className='on';d.onclick=()=>go(n);dotsWrap.appendChild(d);});
+  const dots=[...dotsWrap.children];
+  function go(n){
+    i=Math.max(0,Math.min(slides.length-1,n));
+    slides.forEach((s,k)=>s.classList.toggle('active',k===i));
+    dots.forEach((d,k)=>d.classList.toggle('on',k===i));
+    bar.style.width=((i+1)/slides.length*100)+'%';
+    count.textContent=String(i+1).padStart(2,'0')+' / '+String(slides.length).padStart(2,'0');
+    prev.disabled=i===0;next.disabled=i===slides.length-1;
+    const dark=slides[i].classList.contains('dark');
+    count.style.color=dark?'rgba(234,241,244,.6)':'var(--muted)';
+    dots.forEach(d=>d.style.background=d.classList.contains('on')?'':(dark?'rgba(255,255,255,.3)':''));
+  }
+  next.onclick=()=>go(i+1);prev.onclick=()=>go(i-1);
+  document.addEventListener('keydown',e=>{
+    if(e.key==='ArrowRight'||e.key===' '||e.key==='PageDown'){e.preventDefault();go(i+1);}
+    if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();go(i-1);}
+    if(e.key==='Home')go(0);if(e.key==='End')go(slides.length-1);
+  });
+  go(0);
+</script>
+</body>
+</html>
