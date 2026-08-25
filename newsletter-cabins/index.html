@@ -1,349 +1,247 @@
-﻿<!--
-  SUBJECT LINE A: Your forest cabin is waiting at Crazy Creek
-  SUBJECT LINE B: Kitchen, fire pit & hot pools â€” every cabin, no resort fees
-  PREHEADER: Private forest cabins in Malakwa BC â€” hot pools included, July weekends filling fast.
--->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--
+  Crazy Creek - "Forest Cabins"  -  EDITORIAL redesign v2
+  Aesthetic: cream canvas + pine green + amber, Fraunces serif display (Georgia fallback).
+  Subject A: Your forest cabin is waiting at Crazy Creek
+  Subject B: Kitchen, fire pit and hot pools - every cabin, no resort fees
+  Preheader: Private forest cabins in Malakwa BC - hot pools included, July weekends filling fast.
+-->
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="color-scheme" content="light" />
-  <title>Crazy Creek Resort &mdash; Forest Cabins</title>
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&display=swap" rel="stylesheet" />
+  <title>Crazy Creek Resort</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <style>
-    /* Progressive enhancement ONLY â€” clients that strip this still work via inline styles. */
-    body { margin:0; padding:0; background:#F0F8FF; }
+    body { margin:0; padding:0; background:#EAE3D4; }
     img { -ms-interpolation-mode:bicubic; }
     a { text-decoration:none; }
     @media only screen and (max-width:620px) {
       .container { width:100% !important; }
-      .stack { display:block !important; width:100% !important; padding-left:0 !important; padding-right:0 !important; }
       .px { padding-left:24px !important; padding-right:24px !important; }
-      .h1 { font-size:34px !important; line-height:38px !important; }
+      .h1 { font-size:40px !important; line-height:42px !important; }
+      .stack { display:block !important; width:100% !important; }
     }
   </style>
 </head>
-<body style="margin:0; padding:0; background:#F0F8FF;">
-  <!-- Preheader (hidden preview text) -->
-  <div style="display:none; max-height:0; overflow:hidden; opacity:0; color:#F0F8FF;">
-    Private forest cabins in Malakwa BC &mdash; hot pools included, July weekends filling fast.
-  </div>
+<body style="margin:0; padding:0; background:#EAE3D4;">
+  <div style="display:none; max-height:0; overflow:hidden; opacity:0; color:#EAE3D4;">Private forest cabins in Malakwa BC &mdash; hot pools included, July weekends filling fast.</div>
 
-  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#F0F8FF;">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#EAE3D4;">
     <tr>
-      <td align="center" style="padding:24px 12px;">
-        <table role="presentation" class="container" width="600" cellpadding="0" cellspacing="0" style="width:600px; max-width:600px; background:#FFFFFF; border-radius:14px; overflow:hidden;">
+      <td align="center" style="padding:26px 12px;">
+        <table role="presentation" class="container" width="600" cellpadding="0" cellspacing="0" style="width:600px; max-width:600px; background:#FBF8F1;">
 
           <!-- Brand bar -->
           <tr>
-            <td align="center" bgcolor="#050E1D" style="background:#050E1D; padding:16px 24px;">
-              <span style="font-family:'Oswald','Arial Narrow',Impact,sans-serif; letter-spacing:3px; font-size:13px; color:#00C4E0; text-transform:uppercase;">Crazy Creek Resort &middot; Malakwa BC</span>
+            <td align="center" bgcolor="#123024" style="background:#123024; padding:14px 24px;">
+              <span style="font-family:'Inter',Helvetica,Arial,sans-serif; letter-spacing:4px; font-size:11px; font-weight:600; color:#D9A441; text-transform:uppercase;">Crazy Creek Resort &nbsp;&middot;&nbsp; Malakwa, BC</span>
             </td>
           </tr>
 
-          <!-- HERO image -->
+          <!-- Hero image -->
           <tr>
             <td style="padding:0;">
               <img src="https://crazy-creek-lp.vercel.app/cabin-selkirk-aframe-exterior.webp" width="600" alt="A-frame forest cabin exterior at Crazy Creek Resort" style="display:block; border:0; width:100%; max-width:600px; height:auto;" />
             </td>
           </tr>
-          <!-- HERO copy + above-fold CTA -->
+
+          <!-- Hero copy block (pine) -->
           <tr>
-            <td align="center" bgcolor="#0F172A" style="background:#0F172A; padding:36px 40px 34px; text-align:center;" class="px">
-              <p style="margin:0 0 12px; font-family:'Oswald','Arial Narrow',Impact,sans-serif; letter-spacing:3px; font-size:13px; color:#00C4E0; text-transform:uppercase;">Malakwa, BC &middot; Open Year-Round</p>
-              <h1 class="h1" style="margin:0 0 14px; font-family:'Oswald','Arial Narrow',Impact,sans-serif; font-weight:700; font-size:46px; line-height:46px; color:#FFFFFF; text-transform:uppercase;">Forest Cabins.</h1>
-              <p style="margin:0 auto 26px; max-width:430px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; font-size:17px; line-height:27px; color:rgba(240,248,255,0.85);">Hi {{contact.first_name | default: "there"}} &mdash; private forest cabins with a kitchen, fire pit, A/C, and complimentary hot pools access included. For couples through groups of six.</p>
-              <!-- Bulletproof CTA -->
+            <td bgcolor="#123024" style="background:#123024; padding:40px 44px 38px; text-align:center;" class="px">
+              <p style="margin:0 0 14px; font-family:'Inter',Helvetica,Arial,sans-serif; letter-spacing:3px; font-size:12px; font-weight:600; color:#D9A441; text-transform:uppercase;">Malakwa &middot; British Columbia</p>
+              <h1 class="h1" style="margin:0 0 16px; font-family:'Fraunces','Georgia',serif; font-weight:600; font-size:52px; line-height:52px; color:#FBF8F1;">Your forest<br />cabin awaits.</h1>
+              <p style="margin:0 0 26px; font-family:'Inter',Helvetica,Arial,sans-serif; font-size:16px; line-height:26px; color:rgba(251,248,241,0.82);">Hi {{contact.first_name | default: "there"}} &mdash; private forest cabins with a kitchen, fire pit, A/C, and complimentary hot pools access included. For couples through groups of six.</p>
+              <!-- Centered CTA -->
               <table role="presentation" align="center" cellpadding="0" cellspacing="0" style="margin:0 auto;">
                 <tr>
-                  <td align="center" bgcolor="#0077A0" style="background:#0077A0; border-radius:8px;">
-                    <a href="https://listing.crazycreekresort.com/cabins-394053" style="display:inline-block; padding:15px 34px; font-family:'Oswald','Arial Narrow',Impact,sans-serif; font-size:16px; letter-spacing:1px; color:#FFFFFF; text-transform:uppercase;">Check Availability</a>
+                  <td align="center" bgcolor="#D9A441" style="background:#D9A441;">
+                    <a href="https://listing.crazycreekresort.com/cabins-394053" style="display:inline-block; padding:15px 40px; font-family:'Inter',Helvetica,Arial,sans-serif; font-size:14px; font-weight:600; letter-spacing:1.5px; color:#123024; text-transform:uppercase;">Check Availability</a>
                   </td>
                 </tr>
               </table>
-              <p style="margin:18px 0 0; font-family:-apple-system,Helvetica,Arial,sans-serif; font-size:13px; letter-spacing:0.5px; color:rgba(240,248,255,0.6);">4.4&#9733; on Google &middot; 32 private cabins &middot; No resort fees</p>
+              <p style="margin:22px 0 0; font-family:'Inter',Helvetica,Arial,sans-serif; font-size:12px; color:rgba(251,248,241,0.6); text-align:center;">4.4&#9733; on Google &nbsp;&middot;&nbsp; 32 private cabins &nbsp;&middot;&nbsp; No resort fees</p>
             </td>
           </tr>
 
-          <!-- STAT ROW -->
+          <!-- Stat row -->
           <tr>
-            <td style="padding:28px 40px 0;" class="px">
-              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" bgcolor="#F0F8FF" style="background:#F0F8FF; border-radius:10px;">
+            <td style="padding:34px 44px 6px;" class="px">
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
                 <tr>
-                  <td class="stack" width="33%" align="center" style="padding:20px 8px;">
-                    <div style="font-family:'Oswald','Arial Narrow',Impact,sans-serif; font-weight:700; font-size:30px; color:#0077A0;">4.4&#9733;</div>
-                    <div style="font-family:-apple-system,Helvetica,Arial,sans-serif; font-size:12px; color:#6B7280; text-transform:uppercase; letter-spacing:1px;">Google Rating</div>
+                  <td class="stack" width="33%" align="center" style="padding:6px 4px;">
+                    <div style="font-family:'Fraunces','Georgia',serif; font-weight:600; font-size:40px; color:#1E5A41;">4.4&#9733;</div>
+                    <div style="font-family:'Inter',Helvetica,Arial,sans-serif; font-size:11px; color:#6B6559; text-transform:uppercase; letter-spacing:1.5px; padding-top:2px;">Google rating</div>
                   </td>
-                  <td class="stack" width="33%" align="center" style="padding:20px 8px;">
-                    <div style="font-family:'Oswald','Arial Narrow',Impact,sans-serif; font-weight:700; font-size:30px; color:#0077A0;">32</div>
-                    <div style="font-family:-apple-system,Helvetica,Arial,sans-serif; font-size:12px; color:#6B7280; text-transform:uppercase; letter-spacing:1px;">Private Cabins</div>
+                  <td class="stack" width="33%" align="center" style="padding:6px 4px;">
+                    <div style="font-family:'Fraunces','Georgia',serif; font-weight:600; font-size:40px; color:#1E5A41;">32</div>
+                    <div style="font-family:'Inter',Helvetica,Arial,sans-serif; font-size:11px; color:#6B6559; text-transform:uppercase; letter-spacing:1.5px; padding-top:2px;">Private cabins</div>
                   </td>
-                  <td class="stack" width="33%" align="center" style="padding:20px 8px;">
-                    <div style="font-family:'Oswald','Arial Narrow',Impact,sans-serif; font-weight:700; font-size:30px; color:#0077A0;">365</div>
-                    <div style="font-family:-apple-system,Helvetica,Arial,sans-serif; font-size:12px; color:#6B7280; text-transform:uppercase; letter-spacing:1px;">Hot Pools Open Daily</div>
+                  <td class="stack" width="33%" align="center" style="padding:6px 4px;">
+                    <div style="font-family:'Fraunces','Georgia',serif; font-weight:600; font-size:40px; color:#1E5A41;">365</div>
+                    <div style="font-family:'Inter',Helvetica,Arial,sans-serif; font-size:11px; color:#6B6559; text-transform:uppercase; letter-spacing:1.5px; padding-top:2px;">Hot pools &middot; open daily</div>
                   </td>
                 </tr>
               </table>
-              <p style="margin:10px 2px 0; font-family:Helvetica,Arial,sans-serif; font-size:12px; color:#6B7280; text-align:center;">Hot pools open 9am&ndash;10pm, included with every stay.</p>
+              <p style="margin:14px 0 0; font-family:'Inter',Helvetica,Arial,sans-serif; font-size:12px; color:#6B6559; text-align:center;">Hot pools open 9am&ndash;10pm, included with every stay.</p>
             </td>
           </tr>
 
-          <!-- SECTION: WHAT'S INCLUDED (amenity grid) -->
+          <!-- Section intro -->
           <tr>
-            <td style="padding:34px 40px 0;" class="px">
-              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" bgcolor="#F0F8FF" style="background:#F0F8FF; border-radius:12px;">
-                <tr>
-                  <td style="padding:26px 26px 8px;">
-                    <p style="margin:0 0 2px; font-family:'Oswald','Arial Narrow',Impact,sans-serif; letter-spacing:2px; font-size:12px; color:#0077A0; text-transform:uppercase;">What's Included</p>
-                    <h3 style="margin:0 0 6px; font-family:'Oswald','Arial Narrow',Impact,sans-serif; font-weight:600; font-size:22px; color:#0F172A; text-transform:uppercase;">Everything. No Resort Fees.</h3>
-                  </td>
-                </tr>
-                <tr>
-                  <td style="padding:0 26px 8px;">
-                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
-                      <tr>
-                        <td class="stack" width="50%" valign="top" style="padding-right:12px;">
-                          <p style="margin:0 0 12px; font-family:-apple-system,Helvetica,Arial,sans-serif; font-size:15px; line-height:20px; color:#374151;"><span style="color:#0077A0; font-weight:bold;">&#10003;</span>&nbsp;&nbsp;Complimentary hot pools access</p>
-                          <p style="margin:0 0 12px; font-family:-apple-system,Helvetica,Arial,sans-serif; font-size:15px; line-height:20px; color:#374151;"><span style="color:#0077A0; font-weight:bold;">&#10003;</span>&nbsp;&nbsp;Kitchen with cooking facilities</p>
-                          <p style="margin:0 0 12px; font-family:-apple-system,Helvetica,Arial,sans-serif; font-size:15px; line-height:20px; color:#374151;"><span style="color:#0077A0; font-weight:bold;">&#10003;</span>&nbsp;&nbsp;Sleeps up to 6 guests</p>
-                          <p style="margin:0 0 12px; font-family:-apple-system,Helvetica,Arial,sans-serif; font-size:15px; line-height:20px; color:#374151;"><span style="color:#0077A0; font-weight:bold;">&#10003;</span>&nbsp;&nbsp;Private fire pit</p>
-                        </td>
-                        <td class="stack" width="50%" valign="top" style="padding-left:12px;">
-                          <p style="margin:0 0 12px; font-family:-apple-system,Helvetica,Arial,sans-serif; font-size:15px; line-height:20px; color:#374151;"><span style="color:#0077A0; font-weight:bold;">&#10003;</span>&nbsp;&nbsp;A/C &amp; heating</p>
-                          <p style="margin:0 0 12px; font-family:-apple-system,Helvetica,Arial,sans-serif; font-size:15px; line-height:20px; color:#374151;"><span style="color:#0077A0; font-weight:bold;">&#10003;</span>&nbsp;&nbsp;Free Wi-Fi</p>
-                          <p style="margin:0 0 12px; font-family:-apple-system,Helvetica,Arial,sans-serif; font-size:15px; line-height:20px; color:#374151;"><span style="color:#0077A0; font-weight:bold;">&#10003;</span>&nbsp;&nbsp;Mountain &amp; forest views</p>
-                          <p style="margin:0 0 12px; font-family:-apple-system,Helvetica,Arial,sans-serif; font-size:15px; line-height:20px; color:#374151;"><span style="color:#0077A0; font-weight:bold;">&#10003;</span>&nbsp;&nbsp;Free parking</p>
-                        </td>
-                      </tr>
-                    </table>
-                  </td>
-                </tr>
-                <tr>
-                  <td style="padding:0 26px 24px;">
-                    <p style="margin:0; font-family:-apple-system,Helvetica,Arial,sans-serif; font-size:13px; line-height:19px; color:#6B7280;">Every cabin comes fully equipped &mdash; no surprise charges at checkout.</p>
-                  </td>
-                </tr>
-              </table>
+            <td align="center" style="padding:30px 44px 4px;" class="px">
+              <p style="margin:0 0 6px; font-family:'Inter',Helvetica,Arial,sans-serif; letter-spacing:3px; font-size:11px; font-weight:600; color:#B07A1E; text-transform:uppercase;">What&rsquo;s included</p>
+              <table role="presentation" cellpadding="0" cellspacing="0" align="center" style="margin:8px auto 0;"><tr><td style="width:44px; height:2px; background:#D9A441; font-size:0; line-height:0;">&nbsp;</td></tr></table>
             </td>
           </tr>
 
-          <!-- FULL-WIDTH IMAGE -->
+          <!-- SECTION: Everything included -->
+          <tr>
+            <td align="center" style="padding:22px 44px 0; text-align:center;" class="px">
+              <h2 style="margin:0 0 8px; font-family:'Fraunces','Georgia',serif; font-weight:600; font-size:28px; line-height:30px; color:#1C1A16;">Everything. No resort fees.</h2>
+              <p style="margin:0 0 14px; font-family:'Inter',Helvetica,Arial,sans-serif; font-size:15px; line-height:25px; color:#4A463E;">Every cabin comes fully equipped &mdash; no surprise charges at checkout.</p>
+              <p style="margin:0; font-family:'Inter',Helvetica,Arial,sans-serif; font-size:15px; line-height:28px; color:#4A463E;">Complimentary hot pools access &middot; Kitchen with cooking facilities &middot; Sleeps up to 6 guests &middot; Private fire pit &middot; A/C &amp; heating &middot; Free Wi-Fi &middot; Mountain &amp; forest views &middot; Free parking</p>
+            </td>
+          </tr>
+
+          <!-- Full-width image -->
           <tr>
             <td style="padding:30px 0 0;">
               <img src="https://crazy-creek-lp.vercel.app/new-images/cabin-selkirk-twin-queens-interior.webp" width="600" alt="Cozy cabin interior with a lit fireplace" style="display:block; border:0; width:100%; max-width:600px; height:auto;" />
             </td>
           </tr>
 
-          <!-- SECTION: CABIN TYPES -->
+          <!-- SECTION: Six cabin types -->
           <tr>
-            <td align="center" style="padding:38px 40px 0; text-align:center;" class="px">
-              <p style="margin:0 0 6px; font-family:'Oswald','Arial Narrow',Impact,sans-serif; letter-spacing:2px; font-size:12px; color:#0077A0; text-transform:uppercase;">Room to Suit Every Trip</p>
-              <h2 style="margin:0; font-family:'Oswald','Arial Narrow',Impact,sans-serif; font-weight:600; font-size:27px; line-height:31px; color:#0F172A; text-transform:uppercase;">Six Cabin Types</h2>
-              <table role="presentation" align="center" cellpadding="0" cellspacing="0" style="margin:12px auto 0;"><tr><td style="width:56px; height:3px; background:#00C4E0; font-size:0; line-height:0;">&nbsp;</td></tr></table>
+            <td align="center" style="padding:34px 44px 0; text-align:center;" class="px">
+              <p style="margin:0 0 6px; font-family:'Inter',Helvetica,Arial,sans-serif; letter-spacing:2px; font-size:11px; font-weight:600; color:#B07A1E; text-transform:uppercase;">Room to suit every trip</p>
+              <h2 style="margin:0 0 4px; font-family:'Fraunces','Georgia',serif; font-weight:600; font-size:28px; line-height:30px; color:#1C1A16;">Six cabin types</h2>
+              <table role="presentation" cellpadding="0" cellspacing="0" align="center" style="margin:8px auto 0;"><tr><td style="width:44px; height:2px; background:#D9A441; font-size:0; line-height:0;">&nbsp;</td></tr></table>
             </td>
           </tr>
           <tr>
-            <td style="padding:18px 40px 0;" class="px">
-              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border:1px solid #E5EAF1; border-radius:10px; overflow:hidden;">
-                <tr bgcolor="#0F172A">
-                  <td style="padding:12px 16px; font-family:'Oswald','Arial Narrow',Impact,sans-serif; font-size:13px; color:#FFFFFF; text-transform:uppercase; letter-spacing:1px;">Cabin</td>
-                  <td align="right" style="padding:12px 16px; font-family:'Oswald','Arial Narrow',Impact,sans-serif; font-size:13px; color:#00C4E0; text-transform:uppercase; letter-spacing:1px;">Layout</td>
+            <td style="padding:20px 44px 0;" class="px">
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border:1px solid #E4DCC9;">
+                <tr bgcolor="#123024">
+                  <td style="padding:12px 16px; font-family:'Inter',Helvetica,Arial,sans-serif; font-size:11px; font-weight:600; color:#FBF8F1; text-transform:uppercase; letter-spacing:1.5px;">Cabin</td>
+                  <td align="right" style="padding:12px 16px; font-family:'Inter',Helvetica,Arial,sans-serif; font-size:11px; font-weight:600; color:#D9A441; text-transform:uppercase; letter-spacing:1.5px;">Layout</td>
                 </tr>
                 <tr>
-                  <td style="padding:12px 16px; font-family:-apple-system,Helvetica,Arial,sans-serif; font-size:15px; color:#374151; border-top:1px solid #E5EAF1;">Apex</td>
-                  <td align="right" style="padding:12px 16px; font-family:-apple-system,Helvetica,Arial,sans-serif; font-size:15px; font-weight:bold; color:#0F172A; border-top:1px solid #E5EAF1;">1BR + bunks &middot; up to 6</td>
+                  <td style="padding:12px 16px; font-family:'Inter',Helvetica,Arial,sans-serif; font-size:15px; color:#4A463E; border-top:1px solid #E4DCC9;">Apex</td>
+                  <td align="right" style="padding:12px 16px; font-family:'Inter',Helvetica,Arial,sans-serif; font-size:15px; font-weight:600; color:#1C1A16; border-top:1px solid #E4DCC9;">1BR + bunks &middot; up to 6</td>
                 </tr>
                 <tr>
-                  <td style="padding:12px 16px; font-family:-apple-system,Helvetica,Arial,sans-serif; font-size:15px; color:#374151; border-top:1px solid #E5EAF1;">Elkorn</td>
-                  <td align="right" style="padding:12px 16px; font-family:-apple-system,Helvetica,Arial,sans-serif; font-size:15px; font-weight:bold; color:#0F172A; border-top:1px solid #E5EAF1;">1BR &middot; up to 4</td>
+                  <td style="padding:12px 16px; font-family:'Inter',Helvetica,Arial,sans-serif; font-size:15px; color:#4A463E; border-top:1px solid #E4DCC9;">Elkorn</td>
+                  <td align="right" style="padding:12px 16px; font-family:'Inter',Helvetica,Arial,sans-serif; font-size:15px; font-weight:600; color:#1C1A16; border-top:1px solid #E4DCC9;">1BR &middot; up to 4</td>
                 </tr>
                 <tr>
-                  <td style="padding:12px 16px; font-family:-apple-system,Helvetica,Arial,sans-serif; font-size:15px; color:#374151; border-top:1px solid #E5EAF1;">Shuswap</td>
-                  <td align="right" style="padding:12px 16px; font-family:-apple-system,Helvetica,Arial,sans-serif; font-size:15px; font-weight:bold; color:#0F172A; border-top:1px solid #E5EAF1;">2BR &middot; up to 6</td>
+                  <td style="padding:12px 16px; font-family:'Inter',Helvetica,Arial,sans-serif; font-size:15px; color:#4A463E; border-top:1px solid #E4DCC9;">Shuswap</td>
+                  <td align="right" style="padding:12px 16px; font-family:'Inter',Helvetica,Arial,sans-serif; font-size:15px; font-weight:600; color:#1C1A16; border-top:1px solid #E4DCC9;">2BR &middot; up to 6</td>
                 </tr>
                 <tr>
-                  <td style="padding:12px 16px; font-family:-apple-system,Helvetica,Arial,sans-serif; font-size:15px; color:#374151; border-top:1px solid #E5EAF1;">Monashee</td>
-                  <td align="right" style="padding:12px 16px; font-family:-apple-system,Helvetica,Arial,sans-serif; font-size:15px; font-weight:bold; color:#0F172A; border-top:1px solid #E5EAF1;">Studio + bunk &middot; up to 6</td>
+                  <td style="padding:12px 16px; font-family:'Inter',Helvetica,Arial,sans-serif; font-size:15px; color:#4A463E; border-top:1px solid #E4DCC9;">Monashee</td>
+                  <td align="right" style="padding:12px 16px; font-family:'Inter',Helvetica,Arial,sans-serif; font-size:15px; font-weight:600; color:#1C1A16; border-top:1px solid #E4DCC9;">Studio + bunk &middot; up to 6</td>
                 </tr>
               </table>
-              <p style="margin:8px 2px 0; font-family:Helvetica,Arial,sans-serif; font-size:12px; color:#6B7280;">Every cabin includes a kitchen, fire pit, and complimentary hot pools access.</p>
+              <p style="margin:12px 0 0; font-family:'Inter',Helvetica,Arial,sans-serif; font-size:12px; color:#6B6559; text-align:center;">Every cabin includes a kitchen, fire pit, and complimentary hot pools access.</p>
             </td>
           </tr>
 
-          <!-- SECTION: NEW FOR 2026 -->
+          <!-- Section intro: New in 2026 -->
           <tr>
-            <td align="center" style="padding:38px 40px 0; text-align:center;" class="px">
-              <p style="margin:0 0 6px; font-family:'Oswald','Arial Narrow',Impact,sans-serif; letter-spacing:2px; font-size:12px; color:#0077A0; text-transform:uppercase;">New in 2026</p>
-              <h2 style="margin:0; font-family:'Oswald','Arial Narrow',Impact,sans-serif; font-weight:600; font-size:27px; line-height:31px; color:#0F172A; text-transform:uppercase;">Two Brand-New Cabins</h2>
-              <table role="presentation" align="center" cellpadding="0" cellspacing="0" style="margin:12px auto 0;"><tr><td style="width:56px; height:3px; background:#00C4E0; font-size:0; line-height:0;">&nbsp;</td></tr></table>
+            <td align="center" style="padding:36px 44px 0; text-align:center;" class="px">
+              <p style="margin:0 0 6px; font-family:'Inter',Helvetica,Arial,sans-serif; letter-spacing:3px; font-size:11px; font-weight:600; color:#B07A1E; text-transform:uppercase;">New in 2026</p>
+              <h2 style="margin:0 0 4px; font-family:'Fraunces','Georgia',serif; font-weight:600; font-size:28px; line-height:30px; color:#1C1A16;">Two brand-new cabins</h2>
+              <table role="presentation" cellpadding="0" cellspacing="0" align="center" style="margin:8px auto 0;"><tr><td style="width:44px; height:2px; background:#D9A441; font-size:0; line-height:0;">&nbsp;</td></tr></table>
             </td>
           </tr>
 
-          <!-- TWO CABIN IMAGE CARDS (stack on mobile) -->
+          <!-- ITEM: The Nest -->
+          <tr><td style="padding:24px 0 0;"><img src="https://crazy-creek-lp.vercel.app/new-images/cabin-nest-studio-bed-forest-view.webp" width="600" alt="The Nest studio cabin with a forest view" style="display:block; border:0; width:100%; max-width:600px; height:auto;" /></td></tr>
           <tr>
-            <td style="padding:20px 40px 0;" class="px">
-              <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
-                <tr>
-                  <!-- THE NEST -->
-                  <td class="stack" width="50%" valign="top" style="padding-right:9px;">
-                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border:1px solid #E5EAF1; border-radius:12px; overflow:hidden;">
-                      <tr>
-                        <td style="padding:0;">
-                          <img src="https://crazy-creek-lp.vercel.app/new-images/cabin-nest-studio-bed-forest-view.webp" width="252" alt="The Nest studio cabin exterior" style="display:block; border:0; width:100%; max-width:100%; height:auto;" />
-                        </td>
-                      </tr>
-                      <tr>
-                        <td style="padding:16px 18px 20px;">
-                          <p style="margin:0 0 3px; font-family:'Oswald','Arial Narrow',Impact,sans-serif; letter-spacing:1px; font-size:11px; color:#0077A0; text-transform:uppercase;">Studio for two</p>
-                          <p style="margin:0 0 8px; font-family:'Oswald','Arial Narrow',Impact,sans-serif; font-size:19px; color:#0F172A; text-transform:uppercase;">The Nest</p>
-                          <p style="margin:0; font-family:-apple-system,Helvetica,Arial,sans-serif; font-size:14px; line-height:21px; color:#6B7280;">King bed, kitchen with cooking facilities, private fire pit, and complimentary hot pools access.</p>
-                        </td>
-                      </tr>
-                    </table>
-                  </td>
-                  <!-- THE SELKIRK -->
-                  <td class="stack" width="50%" valign="top" style="padding-left:9px;">
-                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border:1px solid #E5EAF1; border-radius:12px; overflow:hidden;">
-                      <tr>
-                        <td style="padding:0;">
-                          <img src="https://crazy-creek-lp.vercel.app/new-images/cabin-nest-exterior-copper-roof-summer.webp" width="252" alt="Cabin fire pit glowing at night" style="display:block; border:0; width:100%; max-width:100%; height:auto;" />
-                        </td>
-                      </tr>
-                      <tr>
-                        <td style="padding:16px 18px 20px;">
-                          <p style="margin:0 0 3px; font-family:'Oswald','Arial Narrow',Impact,sans-serif; letter-spacing:1px; font-size:11px; color:#0077A0; text-transform:uppercase;">2 Queens + Bunk &middot; Sleeps 6</p>
-                          <p style="margin:0 0 8px; font-family:'Oswald','Arial Narrow',Impact,sans-serif; font-size:19px; color:#0F172A; text-transform:uppercase;">The Selkirk</p>
-                          <p style="margin:0; font-family:-apple-system,Helvetica,Arial,sans-serif; font-size:14px; line-height:21px; color:#6B7280;">Two queen beds plus a bunk, kitchen with cooking facilities, private fire pit &mdash; the whole crew in one cabin.</p>
-                        </td>
-                      </tr>
-                    </table>
-                  </td>
-                </tr>
-              </table>
+            <td style="padding:22px 44px 0; text-align:center;" class="px">
+              <p style="margin:0 0 6px; font-family:'Inter',Helvetica,Arial,sans-serif; letter-spacing:2px; font-size:11px; font-weight:600; color:#B07A1E; text-transform:uppercase;">Studio for two</p>
+              <h2 style="margin:0 0 8px; font-family:'Fraunces','Georgia',serif; font-weight:600; font-size:28px; line-height:30px; color:#1C1A16;">The Nest</h2>
+              <p style="margin:0; font-family:'Inter',Helvetica,Arial,sans-serif; font-size:15px; line-height:25px; color:#4A463E;">King bed, kitchen with cooking facilities, private fire pit, and complimentary hot pools access.</p>
             </td>
           </tr>
 
-          <!-- SECTION: THINGS TO DO -->
+          <tr><td style="padding:30px 44px 0;" class="px"><table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr><td style="height:1px; background:#E4DCC9; font-size:0; line-height:0;">&nbsp;</td></tr></table></td></tr>
+
+          <!-- ITEM: The Selkirk -->
+          <tr><td style="padding:24px 0 0;"><img src="https://crazy-creek-lp.vercel.app/new-images/cabin-nest-exterior-copper-roof-summer.webp" width="600" alt="New cabin with a copper roof in summer" style="display:block; border:0; width:100%; max-width:600px; height:auto;" /></td></tr>
           <tr>
-            <td align="center" style="padding:38px 40px 0; text-align:center;" class="px">
-              <p style="margin:0 0 6px; font-family:'Oswald','Arial Narrow',Impact,sans-serif; letter-spacing:2px; font-size:12px; color:#0077A0; text-transform:uppercase;">5 Minutes from the Cabin Door</p>
-              <h2 style="margin:0; font-family:'Oswald','Arial Narrow',Impact,sans-serif; font-weight:600; font-size:27px; line-height:31px; color:#0F172A; text-transform:uppercase;">Things to Do</h2>
-              <table role="presentation" align="center" cellpadding="0" cellspacing="0" style="margin:12px auto 0;"><tr><td style="width:56px; height:3px; background:#00C4E0; font-size:0; line-height:0;">&nbsp;</td></tr></table>
+            <td style="padding:22px 44px 0; text-align:center;" class="px">
+              <p style="margin:0 0 6px; font-family:'Inter',Helvetica,Arial,sans-serif; letter-spacing:2px; font-size:11px; font-weight:600; color:#B07A1E; text-transform:uppercase;">2 Queens + bunk &middot; sleeps 6</p>
+              <h2 style="margin:0 0 8px; font-family:'Fraunces','Georgia',serif; font-weight:600; font-size:28px; line-height:30px; color:#1C1A16;">The Selkirk</h2>
+              <p style="margin:0 0 16px; font-family:'Inter',Helvetica,Arial,sans-serif; font-size:15px; line-height:25px; color:#4A463E;">Two queen beds plus a bunk, kitchen with cooking facilities, private fire pit &mdash; the whole crew in one cabin.</p>
+              <table role="presentation" align="center" cellpadding="0" cellspacing="0" style="margin:0 auto 4px;"><tr><td align="center" style="border:2px solid #1E5A41;"><a href="https://listing.crazycreekresort.com/cabins-394053" style="display:inline-block; padding:11px 30px; font-family:'Inter',Helvetica,Arial,sans-serif; font-size:13px; font-weight:600; letter-spacing:1.2px; color:#1E5A41; text-transform:uppercase;">Explore Cabins</a></td></tr></table>
+            </td>
+          </tr>
+
+          <!-- SECTION: Things to do -->
+          <tr>
+            <td align="center" style="padding:36px 44px 0; text-align:center;" class="px">
+              <p style="margin:0 0 6px; font-family:'Inter',Helvetica,Arial,sans-serif; letter-spacing:3px; font-size:11px; font-weight:600; color:#B07A1E; text-transform:uppercase;">5 minutes from the cabin door</p>
+              <h2 style="margin:0 0 4px; font-family:'Fraunces','Georgia',serif; font-weight:600; font-size:28px; line-height:30px; color:#1C1A16;">Things to do</h2>
+              <table role="presentation" cellpadding="0" cellspacing="0" align="center" style="margin:8px auto 0;"><tr><td style="width:44px; height:2px; background:#D9A441; font-size:0; line-height:0;">&nbsp;</td></tr></table>
             </td>
           </tr>
           <tr>
-            <td style="padding:18px 40px 0;" class="px">
-              <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
-                <tr>
-                  <td width="44" valign="top" style="font-size:24px; line-height:24px;">&#9832;</td>
-                  <td valign="top">
-                    <p style="margin:0 0 2px; font-family:'Oswald','Arial Narrow',Impact,sans-serif; font-size:16px; color:#0F172A; text-transform:uppercase; letter-spacing:0.5px;">Hot Pools On Site</p>
-                    <p style="margin:0; font-family:-apple-system,Helvetica,Arial,sans-serif; font-size:15px; line-height:23px; color:#6B7280;">Soak with mountain views, open daily and included with your stay.</p>
-                  </td>
-                </tr>
-              </table>
+            <td align="center" style="padding:22px 48px 0; text-align:center;" class="px">
+              <p style="margin:0 0 4px; font-family:'Fraunces','Georgia',serif; font-weight:600; font-size:18px; color:#1C1A16;">Hot pools on site</p>
+              <p style="margin:0 0 18px; font-family:'Inter',Helvetica,Arial,sans-serif; font-size:15px; line-height:24px; color:#4A463E;">Soak with mountain views, open daily and included with your stay.</p>
+              <p style="margin:0 0 4px; font-family:'Fraunces','Georgia',serif; font-weight:600; font-size:18px; color:#1C1A16;">Hiking trails</p>
+              <p style="margin:0 0 18px; font-family:'Inter',Helvetica,Arial,sans-serif; font-size:15px; line-height:24px; color:#4A463E;">Forest and mountain trails right from the resort.</p>
+              <p style="margin:0 0 4px; font-family:'Fraunces','Georgia',serif; font-weight:600; font-size:18px; color:#1C1A16;">Summer concerts</p>
+              <p style="margin:0 0 18px; font-family:'Inter',Helvetica,Arial,sans-serif; font-size:15px; line-height:24px; color:#4A463E;">July &amp; August &mdash; walk to the music from your cabin.</p>
+              <p style="margin:0 0 4px; font-family:'Fraunces','Georgia',serif; font-weight:600; font-size:18px; color:#1C1A16;">Eagle Pass trailhead</p>
+              <p style="margin:0 0 18px; font-family:'Inter',Helvetica,Arial,sans-serif; font-size:15px; line-height:24px; color:#4A463E;">Five minutes away &mdash; winter sledding when the snow flies.</p>
+              <p style="margin:0 0 4px; font-family:'Fraunces','Georgia',serif; font-weight:600; font-size:18px; color:#1C1A16;">Campfire evenings</p>
+              <p style="margin:0; font-family:'Inter',Helvetica,Arial,sans-serif; font-size:15px; line-height:24px; color:#4A463E;">Your own fire pit for evenings under the stars.</p>
             </td>
           </tr>
+
+          <!-- Testimonial (pine card) -->
           <tr>
-            <td style="padding:18px 40px 0;" class="px">
-              <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+            <td style="padding:34px 44px 0;" class="px">
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" bgcolor="#123024" style="background:#123024;">
                 <tr>
-                  <td width="44" valign="top" style="font-size:24px; line-height:24px;">&#127957;</td>
-                  <td valign="top">
-                    <p style="margin:0 0 2px; font-family:'Oswald','Arial Narrow',Impact,sans-serif; font-size:16px; color:#0F172A; text-transform:uppercase; letter-spacing:0.5px;">Hiking Trails</p>
-                    <p style="margin:0; font-family:-apple-system,Helvetica,Arial,sans-serif; font-size:15px; line-height:23px; color:#6B7280;">Forest and mountain trails right from the resort.</p>
-                  </td>
-                </tr>
-              </table>
-            </td>
-          </tr>
-          <tr>
-            <td style="padding:18px 40px 0;" class="px">
-              <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
-                <tr>
-                  <td width="44" valign="top" style="font-size:24px; line-height:24px;">&#127925;</td>
-                  <td valign="top">
-                    <p style="margin:0 0 2px; font-family:'Oswald','Arial Narrow',Impact,sans-serif; font-size:16px; color:#0F172A; text-transform:uppercase; letter-spacing:0.5px;">Summer Concerts</p>
-                    <p style="margin:0; font-family:-apple-system,Helvetica,Arial,sans-serif; font-size:15px; line-height:23px; color:#6B7280;">July &amp; August &mdash; walk to the music from your cabin.</p>
-                  </td>
-                </tr>
-              </table>
-            </td>
-          </tr>
-          <tr>
-            <td style="padding:18px 40px 0;" class="px">
-              <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
-                <tr>
-                  <td width="44" valign="top" style="font-size:24px; line-height:24px;">&#127956;</td>
-                  <td valign="top">
-                    <p style="margin:0 0 2px; font-family:'Oswald','Arial Narrow',Impact,sans-serif; font-size:16px; color:#0F172A; text-transform:uppercase; letter-spacing:0.5px;">Eagle Pass Trailhead</p>
-                    <p style="margin:0; font-family:-apple-system,Helvetica,Arial,sans-serif; font-size:15px; line-height:23px; color:#6B7280;">Five minutes away &mdash; winter sledding when the snow flies.</p>
-                  </td>
-                </tr>
-              </table>
-            </td>
-          </tr>
-          <tr>
-            <td style="padding:18px 40px 0;" class="px">
-              <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
-                <tr>
-                  <td width="44" valign="top" style="font-size:24px; line-height:24px;">&#128293;</td>
-                  <td valign="top">
-                    <p style="margin:0 0 2px; font-family:'Oswald','Arial Narrow',Impact,sans-serif; font-size:16px; color:#0F172A; text-transform:uppercase; letter-spacing:0.5px;">Campfire Evenings</p>
-                    <p style="margin:0; font-family:-apple-system,Helvetica,Arial,sans-serif; font-size:15px; line-height:23px; color:#6B7280;">Your own fire pit for evenings under the stars.</p>
+                  <td style="padding:32px 32px; text-align:center;">
+                    <div style="font-family:'Fraunces','Georgia',serif; font-size:48px; line-height:26px; color:#D9A441;">&ldquo;</div>
+                    <p style="margin:14px 0 16px; font-family:'Fraunces','Georgia',serif; font-style:italic; font-size:20px; line-height:29px; color:#FBF8F1;">We have done Banff, Jasper, and Whistler. Crazy Creek is where we keep coming back.</p>
+                    <p style="margin:0; font-family:'Inter',Helvetica,Arial,sans-serif; font-size:12px; letter-spacing:0.5px; color:#D9A441;">&#9733;&#9733;&#9733;&#9733;&#9733;&nbsp;&nbsp;<span style="color:rgba(251,248,241,0.65);">Recent cabin guest &middot; 4.4&#9733; on Google</span></p>
                   </td>
                 </tr>
               </table>
             </td>
           </tr>
 
-          <!-- TESTIMONIAL -->
+          <!-- Urgency note -->
           <tr>
-            <td style="padding:34px 40px 0;" class="px">
-              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" bgcolor="#0F172A" style="background:#0F172A; border-radius:12px;">
-                <tr>
-                  <td align="center" style="padding:30px 30px; text-align:center;">
-                    <div style="font-family:Georgia,'Times New Roman',serif; font-size:48px; line-height:26px; color:#00C4E0;">&ldquo;</div>
-                    <p style="margin:10px auto 16px; max-width:440px; font-family:Georgia,'Times New Roman',serif; font-style:italic; font-size:19px; line-height:29px; color:#FFFFFF;">We have done Banff, Jasper, and Whistler. Crazy Creek is where we keep coming back.</p>
-                    <p style="margin:0; font-family:-apple-system,Helvetica,Arial,sans-serif; font-size:13px; letter-spacing:0.5px; color:#00C4E0;">&#9733;&#9733;&#9733;&#9733;&#9733;&nbsp;&nbsp;<span style="color:rgba(240,248,255,0.65);">Recent cabin guest &middot; 4.4&#9733; on Google</span></p>
-                  </td>
-                </tr>
-              </table>
+            <td align="center" style="padding:30px 48px 8px;" class="px">
+              <p style="margin:0 0 6px; font-family:'Inter',Helvetica,Arial,sans-serif; letter-spacing:2px; font-size:11px; font-weight:600; color:#B07A1E; text-transform:uppercase;">Plan ahead</p>
+              <p style="margin:0; font-family:'Inter',Helvetica,Arial,sans-serif; font-size:15px; line-height:25px; color:#4A463E;">July &amp; August weekends fill 3&ndash;5 months in advance. If you have summer dates in mind, lock them in now.</p>
             </td>
           </tr>
 
-          <!-- URGENCY -->
+          <!-- Closing CTA -->
           <tr>
-            <td align="center" style="padding:26px 40px 0; text-align:center;" class="px">
-              <p style="margin:0 auto; max-width:460px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; font-size:16px; line-height:26px; color:#374151;">July &amp; August weekends fill 3&ndash;5 months in advance. If you have summer dates in mind, lock them in now.</p>
+            <td align="center" style="padding:24px 44px 34px;" class="px">
+              <p style="margin:0 0 18px; font-family:'Fraunces','Georgia',serif; font-style:italic; font-size:19px; line-height:26px; color:#1C1A16;">{{contact.first_name | default: "there"}}, your cabin, fire pit, and hot pools are waiting.</p>
+              <table role="presentation" align="center" cellpadding="0" cellspacing="0" style="margin:0 auto;"><tr><td align="center" bgcolor="#1E5A41" style="background:#1E5A41;"><a href="https://listing.crazycreekresort.com/cabins-394053" style="display:inline-block; padding:15px 42px; font-family:'Inter',Helvetica,Arial,sans-serif; font-size:14px; font-weight:600; letter-spacing:1.5px; color:#FBF8F1; text-transform:uppercase;">Check Availability</a></td></tr></table>
             </td>
           </tr>
 
-          <!-- FINAL CTA -->
+          <!-- Footer -->
           <tr>
-            <td align="center" style="padding:28px 40px 40px;" class="px">
-              <table role="presentation" cellpadding="0" cellspacing="0">
-                <tr>
-                  <td align="center" bgcolor="#0077A0" style="background:#0077A0; border-radius:8px;">
-                    <a href="https://listing.crazycreekresort.com/cabins-394053" style="display:inline-block; padding:16px 38px; font-family:'Oswald','Arial Narrow',Impact,sans-serif; font-size:17px; letter-spacing:1px; color:#FFFFFF; text-transform:uppercase;">Check Availability</a>
-                  </td>
-                </tr>
-              </table>
-            </td>
-          </tr>
-
-          <!-- FOOTER -->
-          <tr>
-            <td bgcolor="#050E1D" style="background:#050E1D; padding:32px 40px; margin-top:34px;" class="px">
-              <p style="margin:0 0 8px; font-family:'Oswald','Arial Narrow',Impact,sans-serif; font-size:16px; color:#FFFFFF; text-transform:uppercase; letter-spacing:2px;">Crazy Creek Resort</p>
-              <p style="margin:0 0 4px; font-family:Helvetica,Arial,sans-serif; font-size:13px; line-height:20px; color:rgba(240,248,255,0.6);">6162 Trans-Canada Hwy, Malakwa, BC &middot; (250) 836-4097</p>
-              <p style="margin:0 0 14px; font-family:Helvetica,Arial,sans-serif; font-size:13px; line-height:20px; color:rgba(240,248,255,0.6);">Open year-round &middot; 365 days</p>
-              <p style="margin:0; font-family:Helvetica,Arial,sans-serif; font-size:12px; line-height:18px; color:rgba(240,248,255,0.45);">
-                You're receiving this because you visited or subscribed at Crazy Creek Resort.
-                <a href="{{unsubscribe_link}}" style="color:#00C4E0; text-decoration:underline;">Unsubscribe</a> anytime.
-              </p>
+            <td bgcolor="#0E241B" style="background:#0E241B; padding:30px 44px;" class="px">
+              <p style="margin:0 0 8px; font-family:'Fraunces','Georgia',serif; font-size:18px; color:#FBF8F1;">Crazy Creek Resort</p>
+              <p style="margin:0 0 4px; font-family:'Inter',Helvetica,Arial,sans-serif; font-size:13px; line-height:20px; color:rgba(251,248,241,0.6);">6162 Trans-Canada Hwy, Malakwa, BC &middot; (250) 836-4097</p>
+              <p style="margin:0 0 14px; font-family:'Inter',Helvetica,Arial,sans-serif; font-size:13px; line-height:20px; color:rgba(251,248,241,0.6);">Open year-round &middot; 365 days</p>
+              <p style="margin:0; font-family:'Inter',Helvetica,Arial,sans-serif; font-size:12px; line-height:18px; color:rgba(251,248,241,0.45);">You&rsquo;re receiving this because you visited or subscribed at Crazy Creek Resort. <a href="{{unsubscribe_link}}" style="color:#D9A441; text-decoration:underline;">Unsubscribe</a> anytime.</p>
             </td>
           </tr>
 
@@ -353,5 +251,3 @@
   </table>
 </body>
 </html>
-
-

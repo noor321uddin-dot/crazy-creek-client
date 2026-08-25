@@ -1,255 +1,224 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--
+  Crazy Creek -- Hot Pools (winter soak)  .  EDITORIAL redesign v2
+  Aesthetic: cream canvas + pine green + amber, Fraunces serif display (Georgia fallback).
+  Subject A: Soak while it snows -- Crazy Creek Hot Pools, open 365 days
+  Subject B: {{contact.first_name | default: "there"}}, 40C water while the snow falls
+  Preheader: Steam rising, snow falling, 40C water. Open every day of winter, 9am-10pm -- walk in, no booking.
+-->
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="color-scheme" content="light" />
-  <title>Crazy Creek Hot Pools â€” Winter Soak</title>
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&display=swap" rel="stylesheet" />
+  <title>Crazy Creek Resort</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <style>
-    /* Progressive enhancement ONLY â€” clients that strip this still work via inline styles. */
-    body { margin:0; padding:0; background:#EEF2F7; }
+    body { margin:0; padding:0; background:#EAE3D4; }
     img { -ms-interpolation-mode:bicubic; }
     a { text-decoration:none; }
     @media only screen and (max-width:620px) {
       .container { width:100% !important; }
-      .stack { display:block !important; width:100% !important; padding-left:0 !important; padding-right:0 !important; }
       .px { padding-left:24px !important; padding-right:24px !important; }
-      .h1 { font-size:34px !important; line-height:38px !important; }
+      .h1 { font-size:40px !important; line-height:42px !important; }
+      .stack { display:block !important; width:100% !important; }
     }
   </style>
 </head>
-<body style="margin:0; padding:0; background:#EEF2F7;">
-  <!-- Preheader (hidden preview text) -->
-  <div style="display:none; max-height:0; overflow:hidden; opacity:0; color:#EEF2F7;">
-    Steam rising, snow falling, 40&deg;C water. Your winter soak is open 365 days â€” walk in, no booking.
-  </div>
+<body style="margin:0; padding:0; background:#EAE3D4;">
+  <div style="display:none; max-height:0; overflow:hidden; opacity:0; color:#EAE3D4;">Steam rising, snow falling, 40&deg;C water. Open every day of winter, 9am&ndash;10pm &mdash; walk in, no booking.</div>
 
-  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#EEF2F7;">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#EAE3D4;">
     <tr>
-      <td align="center" style="padding:24px 12px;">
-        <table role="presentation" class="container" width="600" cellpadding="0" cellspacing="0" style="width:600px; max-width:600px; background:#FFFFFF; border-radius:16px; overflow:hidden;">
+      <td align="center" style="padding:26px 12px;">
+        <table role="presentation" class="container" width="600" cellpadding="0" cellspacing="0" style="width:600px; max-width:600px; background:#FBF8F1;">
 
           <!-- Brand bar -->
           <tr>
-            <td align="center" bgcolor="#050E1D" style="background:#050E1D; padding:15px 24px;">
-              <span style="font-family:'Oswald','Arial Narrow',Impact,sans-serif; letter-spacing:3px; font-size:13px; color:#00C4E0; text-transform:uppercase;">Crazy Creek Resort &middot; Malakwa BC</span>
+            <td align="center" bgcolor="#123024" style="background:#123024; padding:14px 24px;">
+              <span style="font-family:'Inter',Helvetica,Arial,sans-serif; letter-spacing:4px; font-size:11px; font-weight:600; color:#D9A441; text-transform:uppercase;">Crazy Creek Resort &nbsp;&middot;&nbsp; Malakwa, BC</span>
             </td>
           </tr>
 
-          <!-- HERO image -->
+          <!-- Hero image -->
           <tr>
             <td style="padding:0;">
               <img src="https://crazy-creek-lp.vercel.app/hot-pool-steam-dusk.webp" width="600" alt="Steam rising off the Crazy Creek hot pools at dusk with snow on the peaks" style="display:block; border:0; width:100%; max-width:600px; height:auto;" />
             </td>
           </tr>
-          <!-- HERO copy + above-fold CTA (centered) -->
+
+          <!-- Hero copy block (pine) -->
           <tr>
-            <td align="center" bgcolor="#0F172A" style="background:#0F172A; padding:36px 40px 34px; text-align:center;" class="px">
-              <p style="margin:0 0 12px; font-family:'Oswald','Arial Narrow',Impact,sans-serif; letter-spacing:3px; font-size:13px; color:#00C4E0; text-transform:uppercase;">Winter at the Pools</p>
-              <h1 class="h1" style="margin:0 0 14px; font-family:'Oswald','Arial Narrow',Impact,sans-serif; font-weight:700; font-size:46px; line-height:46px; color:#FFFFFF; text-transform:uppercase;">Soak while<br />it snows.</h1>
-              <p style="margin:0 auto 26px; max-width:440px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; font-size:17px; line-height:27px; color:rgba(240,248,255,0.85);">Mountain-fed pools from a 40&deg;C thermal soak to an 8&deg;C cold plunge â€” open every day of winter, 9am&ndash;10pm. Walk in, no booking needed.</p>
+            <td bgcolor="#123024" style="background:#123024; padding:40px 44px 38px; text-align:center;" class="px">
+              <p style="margin:0 0 14px; font-family:'Inter',Helvetica,Arial,sans-serif; letter-spacing:3px; font-size:12px; font-weight:600; color:#D9A441; text-transform:uppercase;">Winter at the Pools</p>
+              <h1 class="h1" style="margin:0 0 16px; font-family:'Fraunces','Georgia',serif; font-weight:600; font-size:52px; line-height:52px; color:#FBF8F1;">Soak while<br />it snows.</h1>
+              <p style="margin:0 0 26px; font-family:'Inter',Helvetica,Arial,sans-serif; font-size:16px; line-height:26px; color:rgba(251,248,241,0.82);">Mountain-fed pools from a 40&deg;C thermal soak to an 8&deg;C cold plunge &mdash; open every day of winter, 9am&ndash;10pm. Walk in, no booking needed.</p>
+              <!-- Centered CTA -->
               <table role="presentation" align="center" cellpadding="0" cellspacing="0" style="margin:0 auto;">
                 <tr>
-                  <td align="center" bgcolor="#0077A0" style="background:#0077A0; border-radius:8px;">
-                    <a href="https://listing.crazycreekresort.com/hot-pools-525932" style="display:inline-block; padding:15px 34px; font-family:'Oswald','Arial Narrow',Impact,sans-serif; font-size:16px; letter-spacing:1px; color:#FFFFFF; text-transform:uppercase;">Plan Your Winter Visit</a>
+                  <td align="center" bgcolor="#D9A441" style="background:#D9A441;">
+                    <a href="https://listing.crazycreekresort.com/hot-pools-525932" style="display:inline-block; padding:15px 40px; font-family:'Inter',Helvetica,Arial,sans-serif; font-size:14px; font-weight:600; letter-spacing:1.5px; color:#123024; text-transform:uppercase;">Plan Your Winter Visit</a>
                   </td>
                 </tr>
               </table>
-              <p style="margin:18px 0 0; font-family:-apple-system,Helvetica,Arial,sans-serif; font-size:13px; letter-spacing:0.5px; color:rgba(240,248,255,0.6);">Open 365 days &middot; Walk-ins welcome &middot; From CA$19.95</p>
+              <p style="margin:22px 0 0; font-family:'Inter',Helvetica,Arial,sans-serif; font-size:12px; color:rgba(251,248,241,0.6); text-align:center;">Open 365 days &nbsp;&middot;&nbsp; Walk-ins welcome &nbsp;&middot;&nbsp; From CA$19.95</p>
             </td>
           </tr>
 
-          <!-- STAT ROW -->
+          <!-- Stat row -->
           <tr>
-            <td style="padding:26px 40px 0;" class="px">
-              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" bgcolor="#F0F8FF" style="background:#F0F8FF; border:1px solid #DCEBF5; border-radius:12px;">
+            <td style="padding:34px 44px 6px;" class="px">
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
                 <tr>
-                  <td class="stack" width="33%" align="center" style="padding:22px 8px;">
-                    <div style="font-family:'Oswald','Arial Narrow',Impact,sans-serif; font-weight:700; font-size:32px; color:#0077A0;">365</div>
-                    <div style="font-family:-apple-system,Helvetica,Arial,sans-serif; font-size:11px; color:#6B7280; text-transform:uppercase; letter-spacing:1.5px;">Days Open</div>
+                  <td class="stack" width="33%" align="center" style="padding:6px 4px;">
+                    <div style="font-family:'Fraunces','Georgia',serif; font-weight:600; font-size:40px; color:#1E5A41;">365</div>
+                    <div style="font-family:'Inter',Helvetica,Arial,sans-serif; font-size:11px; color:#6B6559; text-transform:uppercase; letter-spacing:1.5px; padding-top:2px;">Days open</div>
                   </td>
-                  <td class="stack" width="33%" align="center" style="padding:22px 8px;">
-                    <div style="font-family:'Oswald','Arial Narrow',Impact,sans-serif; font-weight:700; font-size:32px; color:#0077A0;">4</div>
-                    <div style="font-family:-apple-system,Helvetica,Arial,sans-serif; font-size:11px; color:#6B7280; text-transform:uppercase; letter-spacing:1.5px;">Hot Pools</div>
+                  <td class="stack" width="33%" align="center" style="padding:6px 4px;">
+                    <div style="font-family:'Fraunces','Georgia',serif; font-weight:600; font-size:40px; color:#1E5A41;">4</div>
+                    <div style="font-family:'Inter',Helvetica,Arial,sans-serif; font-size:11px; color:#6B6559; text-transform:uppercase; letter-spacing:1.5px; padding-top:2px;">Hot pools</div>
                   </td>
-                  <td class="stack" width="33%" align="center" style="padding:22px 8px;">
-                    <div style="font-family:'Oswald','Arial Narrow',Impact,sans-serif; font-weight:700; font-size:32px; color:#0077A0;">9&ndash;10</div>
-                    <div style="font-family:-apple-system,Helvetica,Arial,sans-serif; font-size:11px; color:#6B7280; text-transform:uppercase; letter-spacing:1.5px;">Open Daily</div>
-                  </td>
-                </tr>
-              </table>
-            </td>
-          </tr>
-
-          <!-- SECTION: THE CONTRAST LOOP -->
-          <tr>
-            <td align="center" style="padding:38px 40px 0; text-align:center;" class="px">
-              <p style="margin:0 0 6px; font-family:'Oswald','Arial Narrow',Impact,sans-serif; letter-spacing:2px; font-size:12px; color:#0077A0; text-transform:uppercase;">The Pools</p>
-              <h2 style="margin:0; font-family:'Oswald','Arial Narrow',Impact,sans-serif; font-weight:600; font-size:27px; line-height:31px; color:#0F172A; text-transform:uppercase;">The Contrast Loop</h2>
-              <table role="presentation" align="center" cellpadding="0" cellspacing="0" style="margin:12px auto 0;"><tr><td style="width:56px; height:3px; background:#00C4E0; font-size:0; line-height:0;">&nbsp;</td></tr></table>
-            </td>
-          </tr>
-          <tr>
-            <td align="center" style="padding:16px 40px 0; text-align:center;" class="px">
-              <p style="margin:0 auto; max-width:470px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; font-size:16px; line-height:26px; color:#374151;">Move from the 40&deg;C thermal soak to the 8&deg;C cold plunge and back. Hot opens you up, cold resets you â€” the recovery cycle athletes and hikers drive here for.</p>
-            </td>
-          </tr>
-
-          <!-- SEASONAL NOTE -->
-          <tr>
-            <td align="center" style="padding:12px 40px 0; text-align:center;" class="px">
-              <p style="margin:0 auto; max-width:470px; font-family:-apple-system,Helvetica,Arial,sans-serif; font-size:14px; line-height:21px; color:#6B7280;"><em>Good to know:</em> one of the four pools is seasonal (open May&ndash;October). The thermal soak and cold plunge run every day of winter, 9am&ndash;10pm â€” snow or shine.</p>
-            </td>
-          </tr>
-
-          <!-- RECOVERY CARD (full width) -->
-          <tr>
-            <td style="padding:24px 40px 0;" class="px">
-              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" bgcolor="#F0F8FF" style="background:#F0F8FF; border:1px solid #DCEBF5; border-radius:12px;">
-                <tr>
-                  <td style="padding:26px 26px 6px;">
-                    <p style="margin:0 0 2px; font-family:'Oswald','Arial Narrow',Impact,sans-serif; letter-spacing:2px; font-size:12px; color:#0077A0; text-transform:uppercase;">The Science</p>
-                    <h3 style="margin:0; font-family:'Oswald','Arial Narrow',Impact,sans-serif; font-weight:600; font-size:22px; color:#0F172A; text-transform:uppercase;">Hot Soaks, Cold Plunge</h3>
-                  </td>
-                </tr>
-                <tr>
-                  <td style="padding:8px 26px 24px;">
-                    <p style="margin:0 0 14px; font-family:-apple-system,Helvetica,Arial,sans-serif; font-size:15px; line-height:22px; color:#374151;"><strong style="color:#0F172A;">Immune system.</strong> Regular cold exposure helps strengthen the body's natural defences over time.</p>
-                    <p style="margin:0 0 14px; font-family:-apple-system,Helvetica,Arial,sans-serif; font-size:15px; line-height:22px; color:#374151;"><strong style="color:#0F172A;">Less inflammation.</strong> The cold plunge constricts blood vessels, flushing lactic acid and easing muscle soreness.</p>
-                    <p style="margin:0 0 14px; font-family:-apple-system,Helvetica,Arial,sans-serif; font-size:15px; line-height:22px; color:#374151;"><strong style="color:#0F172A;">Stress &amp; calm.</strong> Cold immersion triggers an endorphin release â€” a runner's high in about three minutes.</p>
-                    <p style="margin:0; font-family:-apple-system,Helvetica,Arial,sans-serif; font-size:15px; line-height:22px; color:#374151;"><strong style="color:#0F172A;">Faster recovery.</strong> Athletes and hikers use the hot-cold contrast cycle to bounce back quicker â€” soak hot, plunge cold, repeat.</p>
+                  <td class="stack" width="33%" align="center" style="padding:6px 4px;">
+                    <div style="font-family:'Fraunces','Georgia',serif; font-weight:600; font-size:40px; color:#1E5A41;">9&ndash;10</div>
+                    <div style="font-family:'Inter',Helvetica,Arial,sans-serif; font-size:11px; color:#6B6559; text-transform:uppercase; letter-spacing:1.5px; padding-top:2px;">Open daily</div>
                   </td>
                 </tr>
               </table>
             </td>
           </tr>
 
-          <!-- FULL-WIDTH IMAGE -->
+          <!-- Section intro -->
           <tr>
-            <td style="padding:30px 0 0;">
-              <img src="https://crazy-creek-lp.vercel.app/hot-pool-night-glowing.webp" width="600" alt="Glowing hot pool at night in winter" style="display:block; border:0; width:100%; max-width:600px; height:auto;" />
+            <td align="center" style="padding:30px 44px 4px;" class="px">
+              <p style="margin:0 0 6px; font-family:'Inter',Helvetica,Arial,sans-serif; letter-spacing:3px; font-size:11px; font-weight:600; color:#B07A1E; text-transform:uppercase;">The pools</p>
+              <table role="presentation" cellpadding="0" cellspacing="0" align="center" style="margin:8px auto 0;"><tr><td style="width:44px; height:2px; background:#D9A441; font-size:0; line-height:0;">&nbsp;</td></tr></table>
             </td>
           </tr>
 
-          <!-- SECTION: WALK-IN PRICING -->
+          <!-- SECTION: The Contrast Loop -->
           <tr>
-            <td align="center" style="padding:38px 40px 0; text-align:center;" class="px">
-              <p style="margin:0 0 6px; font-family:'Oswald','Arial Narrow',Impact,sans-serif; letter-spacing:2px; font-size:12px; color:#0077A0; text-transform:uppercase;">Pricing</p>
-              <h2 style="margin:0; font-family:'Oswald','Arial Narrow',Impact,sans-serif; font-weight:600; font-size:27px; line-height:31px; color:#0F172A; text-transform:uppercase;">Walk-In Pricing</h2>
-              <table role="presentation" align="center" cellpadding="0" cellspacing="0" style="margin:12px auto 0;"><tr><td style="width:56px; height:3px; background:#00C4E0; font-size:0; line-height:0;">&nbsp;</td></tr></table>
-            </td>
-          </tr>
-          <tr>
-            <td align="center" style="padding:16px 40px 0; text-align:center;" class="px">
-              <p style="margin:0 auto; max-width:470px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; font-size:16px; line-height:26px; color:#374151;">No membership, no booking, no fuss â€” show up and pay at the gate. Resort guests save 20%, and up to 55% on multi-night stays.</p>
-            </td>
-          </tr>
-          <tr>
-            <td style="padding:20px 40px 0;" class="px">
-              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border:1px solid #E5EAF1; border-radius:10px; overflow:hidden;">
-                <tr bgcolor="#0F172A">
-                  <td style="padding:12px 16px; font-family:'Oswald','Arial Narrow',Impact,sans-serif; font-size:13px; color:#FFFFFF; text-transform:uppercase; letter-spacing:1px;">Rate</td>
-                  <td align="right" style="padding:12px 16px; font-family:'Oswald','Arial Narrow',Impact,sans-serif; font-size:13px; color:#00C4E0; text-transform:uppercase; letter-spacing:1px;">From</td>
-                </tr>
-                <tr>
-                  <td style="padding:12px 16px; font-family:-apple-system,Helvetica,Arial,sans-serif; font-size:15px; color:#374151; border-top:1px solid #E5EAF1;">Adult &middot; single dip</td>
-                  <td align="right" style="padding:12px 16px; font-family:-apple-system,Helvetica,Arial,sans-serif; font-size:15px; font-weight:bold; color:#0F172A; border-top:1px solid #E5EAF1;">CA$19.95</td>
-                </tr>
-                <tr>
-                  <td style="padding:12px 16px; font-family:-apple-system,Helvetica,Arial,sans-serif; font-size:15px; color:#374151; border-top:1px solid #E5EAF1;">Family &middot; 2 adults + 2 kids</td>
-                  <td align="right" style="padding:12px 16px; font-family:-apple-system,Helvetica,Arial,sans-serif; font-size:15px; font-weight:bold; color:#0F172A; border-top:1px solid #E5EAF1;">CA$54.95</td>
-                </tr>
-                <tr>
-                  <td style="padding:12px 16px; font-family:-apple-system,Helvetica,Arial,sans-serif; font-size:15px; color:#374151; border-top:1px solid #E5EAF1;">Annual pass &middot; adult</td>
-                  <td align="right" style="padding:12px 16px; font-family:-apple-system,Helvetica,Arial,sans-serif; font-size:15px; font-weight:bold; color:#0F172A; border-top:1px solid #E5EAF1;">CA$164.95</td>
-                </tr>
-              </table>
-              <p style="margin:10px 0 0; text-align:center; font-family:Helvetica,Arial,sans-serif; font-size:12px; color:#6B7280;">2 &amp; under free &middot; + applicable taxes &middot; Resort guests 20% off.</p>
+            <td style="padding:24px 44px 0; text-align:center;" class="px">
+              <h2 style="margin:0 0 12px; font-family:'Fraunces','Georgia',serif; font-weight:600; font-size:28px; line-height:30px; color:#1C1A16;">The Contrast Loop</h2>
+              <p style="margin:0 0 12px; font-family:'Inter',Helvetica,Arial,sans-serif; font-size:15px; line-height:25px; color:#4A463E;">Move from the 40&deg;C thermal soak to the 8&deg;C cold plunge and back. Hot opens you up, cold resets you &mdash; the recovery cycle athletes and hikers drive here for.</p>
+              <p style="margin:0; font-family:'Inter',Helvetica,Arial,sans-serif; font-size:13px; line-height:21px; color:#6B6559;"><em>Good to know:</em> one of the four pools is seasonal (open May&ndash;October). The thermal soak and cold plunge run every day of winter, 9am&ndash;10pm &mdash; snow or shine.</p>
             </td>
           </tr>
 
-          <!-- SECTION: GETTING HERE -->
+          <!-- ITEM: The Science (pine card) -->
           <tr>
-            <td align="center" style="padding:38px 40px 0; text-align:center;" class="px">
-              <p style="margin:0 0 6px; font-family:'Oswald','Arial Narrow',Impact,sans-serif; letter-spacing:2px; font-size:12px; color:#0077A0; text-transform:uppercase;">Location</p>
-              <h2 style="margin:0; font-family:'Oswald','Arial Narrow',Impact,sans-serif; font-weight:600; font-size:27px; line-height:31px; color:#0F172A; text-transform:uppercase;">Getting Here</h2>
-              <table role="presentation" align="center" cellpadding="0" cellspacing="0" style="margin:12px auto 0;"><tr><td style="width:56px; height:3px; background:#00C4E0; font-size:0; line-height:0;">&nbsp;</td></tr></table>
-            </td>
-          </tr>
-          <tr>
-            <td align="center" style="padding:14px 40px 0; text-align:center;" class="px">
-              <p style="margin:0 auto 18px; max-width:440px; font-family:-apple-system,Helvetica,Arial,sans-serif; font-size:15px; line-height:23px; color:#6B7280;">Right on the Trans-Canada, easy to spot from the highway. Free parking on site.</p>
-            </td>
-          </tr>
-          <tr>
-            <td style="padding:0 40px 0;" class="px">
-              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" bgcolor="#F0F8FF" style="background:#F0F8FF; border:1px solid #DCEBF5; border-radius:12px;">
+            <td style="padding:30px 44px 0;" class="px">
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" bgcolor="#123024" style="background:#123024;">
                 <tr>
-                  <td class="stack" width="33%" align="center" style="padding:20px 8px;">
-                    <div style="font-family:'Oswald','Arial Narrow',Impact,sans-serif; font-weight:700; font-size:26px; color:#0077A0;">30 MIN</div>
-                    <div style="font-family:-apple-system,Helvetica,Arial,sans-serif; font-size:11px; color:#6B7280; text-transform:uppercase; letter-spacing:1.5px;">Revelstoke</div>
-                  </td>
-                  <td class="stack" width="33%" align="center" style="padding:20px 8px;">
-                    <div style="font-family:'Oswald','Arial Narrow',Impact,sans-serif; font-weight:700; font-size:26px; color:#0077A0;">25 MIN</div>
-                    <div style="font-family:-apple-system,Helvetica,Arial,sans-serif; font-size:11px; color:#6B7280; text-transform:uppercase; letter-spacing:1.5px;">Sicamous</div>
-                  </td>
-                  <td class="stack" width="33%" align="center" style="padding:20px 8px;">
-                    <div style="font-family:'Oswald','Arial Narrow',Impact,sans-serif; font-weight:700; font-size:26px; color:#0077A0;">45 MIN</div>
-                    <div style="font-family:-apple-system,Helvetica,Arial,sans-serif; font-size:11px; color:#6B7280; text-transform:uppercase; letter-spacing:1.5px;">Salmon Arm</div>
+                  <td style="padding:30px 32px; text-align:center;">
+                    <p style="margin:0 0 6px; font-family:'Inter',Helvetica,Arial,sans-serif; letter-spacing:2px; font-size:11px; font-weight:600; color:#D9A441; text-transform:uppercase;">The Science</p>
+                    <h2 style="margin:0 0 18px; font-family:'Fraunces','Georgia',serif; font-weight:600; font-size:26px; line-height:29px; color:#FBF8F1;">Hot soaks, cold plunge</h2>
+                    <p style="margin:0 0 14px; font-family:'Inter',Helvetica,Arial,sans-serif; font-size:15px; line-height:24px; color:rgba(251,248,241,0.82);"><strong style="color:#FBF8F1;">Immune system.</strong> Regular cold exposure helps strengthen the body&rsquo;s natural defences over time.</p>
+                    <p style="margin:0 0 14px; font-family:'Inter',Helvetica,Arial,sans-serif; font-size:15px; line-height:24px; color:rgba(251,248,241,0.82);"><strong style="color:#FBF8F1;">Less inflammation.</strong> The cold plunge constricts blood vessels, flushing lactic acid and easing muscle soreness.</p>
+                    <p style="margin:0 0 14px; font-family:'Inter',Helvetica,Arial,sans-serif; font-size:15px; line-height:24px; color:rgba(251,248,241,0.82);"><strong style="color:#FBF8F1;">Stress &amp; calm.</strong> Cold immersion triggers an endorphin release &mdash; a runner&rsquo;s high in about three minutes.</p>
+                    <p style="margin:0; font-family:'Inter',Helvetica,Arial,sans-serif; font-size:15px; line-height:24px; color:rgba(251,248,241,0.82);"><strong style="color:#FBF8F1;">Faster recovery.</strong> Athletes and hikers use the hot-cold contrast cycle to bounce back quicker &mdash; soak hot, plunge cold, repeat.</p>
                   </td>
                 </tr>
               </table>
             </td>
           </tr>
 
-          <!-- DIVIDER -->
-          <tr><td style="padding:30px 40px 0;" class="px"><table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr><td style="height:1px; background:#E5EAF1; font-size:0; line-height:0;">&nbsp;</td></tr></table></td></tr>
+          <!-- Full-width image -->
+          <tr><td style="padding:30px 0 0;"><img src="https://crazy-creek-lp.vercel.app/hot-pool-night-glowing.webp" width="600" alt="Glowing hot pool at night in winter" style="display:block; border:0; width:100%; max-width:600px; height:auto;" /></td></tr>
 
-          <!-- TESTIMONIAL (social proof) -->
+          <tr><td style="padding:30px 44px 0;" class="px"><table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr><td style="height:1px; background:#E4DCC9; font-size:0; line-height:0;">&nbsp;</td></tr></table></td></tr>
+
+          <!-- SECTION: Walk-In Pricing -->
           <tr>
-            <td style="padding:30px 40px 0;" class="px">
-              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" bgcolor="#0F172A" style="background:#0F172A; border-radius:12px;">
+            <td style="padding:30px 44px 0; text-align:center;" class="px">
+              <p style="margin:0 0 6px; font-family:'Inter',Helvetica,Arial,sans-serif; letter-spacing:2px; font-size:11px; font-weight:600; color:#B07A1E; text-transform:uppercase;">Pricing</p>
+              <h2 style="margin:0 0 12px; font-family:'Fraunces','Georgia',serif; font-weight:600; font-size:28px; line-height:30px; color:#1C1A16;">Walk-in pricing</h2>
+              <p style="margin:0 0 20px; font-family:'Inter',Helvetica,Arial,sans-serif; font-size:15px; line-height:25px; color:#4A463E;">No membership, no booking, no fuss &mdash; show up and pay at the gate. Resort guests save 20%, and up to 55% on multi-night stays.</p>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding:0 44px 0;" class="px">
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border:1px solid #E4DCC9;">
+                <tr bgcolor="#123024">
+                  <td style="padding:12px 18px; font-family:'Inter',Helvetica,Arial,sans-serif; font-size:11px; font-weight:600; color:#FBF8F1; text-transform:uppercase; letter-spacing:1.5px;">Rate</td>
+                  <td align="right" style="padding:12px 18px; font-family:'Inter',Helvetica,Arial,sans-serif; font-size:11px; font-weight:600; color:#D9A441; text-transform:uppercase; letter-spacing:1.5px;">From</td>
+                </tr>
                 <tr>
-                  <td align="center" style="padding:30px 30px; text-align:center;">
-                    <div style="font-family:Georgia,'Times New Roman',serif; font-size:48px; line-height:26px; color:#00C4E0;">&ldquo;</div>
-                    <p style="margin:10px auto 16px; max-width:440px; font-family:Georgia,'Times New Roman',serif; font-style:italic; font-size:19px; line-height:29px; color:#FFFFFF;">Soaking in the hot pools while snow fell on the mountains behind us. We booked again for next winter the same night.</p>
-                    <p style="margin:0; font-family:-apple-system,Helvetica,Arial,sans-serif; font-size:13px; letter-spacing:0.5px; color:#00C4E0;">&#9733;&#9733;&#9733;&#9733;&#9733;&nbsp;&nbsp;<span style="color:rgba(240,248,255,0.65);">Recent hot-pools visitor</span></p>
+                  <td style="padding:13px 18px; font-family:'Inter',Helvetica,Arial,sans-serif; font-size:15px; color:#4A463E; border-top:1px solid #E4DCC9;">Adult &middot; single dip</td>
+                  <td align="right" style="padding:13px 18px; font-family:'Fraunces','Georgia',serif; font-size:16px; font-weight:600; color:#1C1A16; border-top:1px solid #E4DCC9;">CA$19.95</td>
+                </tr>
+                <tr>
+                  <td style="padding:13px 18px; font-family:'Inter',Helvetica,Arial,sans-serif; font-size:15px; color:#4A463E; border-top:1px solid #E4DCC9;">Family &middot; 2 adults + 2 kids</td>
+                  <td align="right" style="padding:13px 18px; font-family:'Fraunces','Georgia',serif; font-size:16px; font-weight:600; color:#1C1A16; border-top:1px solid #E4DCC9;">CA$54.95</td>
+                </tr>
+                <tr>
+                  <td style="padding:13px 18px; font-family:'Inter',Helvetica,Arial,sans-serif; font-size:15px; color:#4A463E; border-top:1px solid #E4DCC9;">Annual pass &middot; adult</td>
+                  <td align="right" style="padding:13px 18px; font-family:'Fraunces','Georgia',serif; font-size:16px; font-weight:600; color:#1C1A16; border-top:1px solid #E4DCC9;">CA$164.95</td>
+                </tr>
+              </table>
+              <p style="margin:12px 0 0; text-align:center; font-family:'Inter',Helvetica,Arial,sans-serif; font-size:12px; color:#6B6559;">2 &amp; under free &middot; + applicable taxes &middot; Resort guests 20% off.</p>
+            </td>
+          </tr>
+
+          <!-- SECTION: Getting Here -->
+          <tr>
+            <td style="padding:30px 44px 0; text-align:center;" class="px">
+              <p style="margin:0 0 6px; font-family:'Inter',Helvetica,Arial,sans-serif; letter-spacing:2px; font-size:11px; font-weight:600; color:#B07A1E; text-transform:uppercase;">Location</p>
+              <h2 style="margin:0 0 12px; font-family:'Fraunces','Georgia',serif; font-weight:600; font-size:28px; line-height:30px; color:#1C1A16;">Getting here</h2>
+              <p style="margin:0; font-family:'Inter',Helvetica,Arial,sans-serif; font-size:15px; line-height:25px; color:#4A463E;">Right on the Trans-Canada, easy to spot from the highway. Free parking on site.</p>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding:22px 44px 6px;" class="px">
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td class="stack" width="33%" align="center" style="padding:6px 4px;">
+                    <div style="font-family:'Fraunces','Georgia',serif; font-weight:600; font-size:34px; color:#1E5A41;">30 min</div>
+                    <div style="font-family:'Inter',Helvetica,Arial,sans-serif; font-size:11px; color:#6B6559; text-transform:uppercase; letter-spacing:1.5px; padding-top:2px;">Revelstoke</div>
+                  </td>
+                  <td class="stack" width="33%" align="center" style="padding:6px 4px;">
+                    <div style="font-family:'Fraunces','Georgia',serif; font-weight:600; font-size:34px; color:#1E5A41;">25 min</div>
+                    <div style="font-family:'Inter',Helvetica,Arial,sans-serif; font-size:11px; color:#6B6559; text-transform:uppercase; letter-spacing:1.5px; padding-top:2px;">Sicamous</div>
+                  </td>
+                  <td class="stack" width="33%" align="center" style="padding:6px 4px;">
+                    <div style="font-family:'Fraunces','Georgia',serif; font-weight:600; font-size:34px; color:#1E5A41;">45 min</div>
+                    <div style="font-family:'Inter',Helvetica,Arial,sans-serif; font-size:11px; color:#6B6559; text-transform:uppercase; letter-spacing:1.5px; padding-top:2px;">Salmon Arm</div>
                   </td>
                 </tr>
               </table>
             </td>
           </tr>
 
-          <!-- FINAL CTA (centered, with gap below) -->
+          <!-- TESTIMONIAL (pine card) -->
           <tr>
-            <td align="center" style="padding:28px 40px 6px;" class="px">
-              <table role="presentation" align="center" cellpadding="0" cellspacing="0" style="margin:0 auto;">
+            <td style="padding:30px 44px 0;" class="px">
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" bgcolor="#123024" style="background:#123024;">
                 <tr>
-                  <td align="center" bgcolor="#0077A0" style="background:#0077A0; border-radius:8px;">
-                    <a href="https://listing.crazycreekresort.com/hot-pools-525932" style="display:inline-block; padding:16px 38px; font-family:'Oswald','Arial Narrow',Impact,sans-serif; font-size:17px; letter-spacing:1px; color:#FFFFFF; text-transform:uppercase;">Plan Your Winter Visit</a>
+                  <td align="center" style="padding:32px 32px; text-align:center;">
+                    <p style="margin:0 0 4px; font-family:'Inter',Helvetica,Arial,sans-serif; font-size:13px; letter-spacing:0.5px; color:#D9A441;">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+                    <p style="margin:0 0 16px; font-family:'Fraunces','Georgia',serif; font-style:italic; font-size:20px; line-height:29px; color:#FBF8F1;">Soaking in the hot pools while snow fell on the mountains behind us. We booked again for next winter the same night.</p>
+                    <p style="margin:0; font-family:'Inter',Helvetica,Arial,sans-serif; font-size:12px; letter-spacing:1px; color:rgba(251,248,241,0.6); text-transform:uppercase;">Recent hot-pools visitor</p>
                   </td>
                 </tr>
               </table>
             </td>
           </tr>
+
+          <!-- Closing CTA -->
           <tr>
-            <td align="center" style="padding:12px 40px 40px; text-align:center;" class="px">
-              <p style="margin:0 auto; max-width:400px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; font-size:13px; line-height:20px; color:#6B7280;">Walk-ins always welcome &mdash; and when online booking goes live, you&rsquo;ll hear it here first.</p>
+            <td align="center" style="padding:30px 44px 34px;" class="px">
+              <p style="margin:0 0 18px; font-family:'Fraunces','Georgia',serif; font-style:italic; font-size:19px; line-height:26px; color:#1C1A16;">Steam rising, snow falling, 40&deg;C water.</p>
+              <table role="presentation" align="center" cellpadding="0" cellspacing="0" style="margin:0 auto;"><tr><td align="center" bgcolor="#1E5A41" style="background:#1E5A41;"><a href="https://listing.crazycreekresort.com/hot-pools-525932" style="display:inline-block; padding:15px 42px; font-family:'Inter',Helvetica,Arial,sans-serif; font-size:14px; font-weight:600; letter-spacing:1.5px; color:#FBF8F1; text-transform:uppercase;">Plan Your Winter Visit</a></td></tr></table>
             </td>
           </tr>
 
-          <!-- FOOTER -->
+          <!-- Footer -->
           <tr>
-            <td bgcolor="#050E1D" style="background:#050E1D; padding:32px 40px;" class="px">
-              <p style="margin:0 0 8px; font-family:'Oswald','Arial Narrow',Impact,sans-serif; font-size:16px; color:#FFFFFF; text-transform:uppercase; letter-spacing:2px;">Crazy Creek Resort</p>
-              <p style="margin:0 0 4px; font-family:Helvetica,Arial,sans-serif; font-size:13px; line-height:20px; color:rgba(240,248,255,0.6);">6162 Trans-Canada Hwy, Malakwa, BC &middot; (250) 836-4097</p>
-              <p style="margin:0 0 14px; font-family:Helvetica,Arial,sans-serif; font-size:13px; line-height:20px; color:rgba(240,248,255,0.6);">Open year-round &middot; 365 days &middot; Walk-ins welcome</p>
-              <p style="margin:0; font-family:Helvetica,Arial,sans-serif; font-size:12px; line-height:18px; color:rgba(240,248,255,0.45);">
-                You're receiving this because you visited or subscribed at Crazy Creek Resort.
-                <a href="{{unsubscribe_link}}" style="color:#00C4E0; text-decoration:underline;">Unsubscribe</a> anytime.
-              </p>
+            <td bgcolor="#0E241B" style="background:#0E241B; padding:30px 44px;" class="px">
+              <p style="margin:0 0 8px; font-family:'Fraunces','Georgia',serif; font-size:18px; color:#FBF8F1;">Crazy Creek Resort</p>
+              <p style="margin:0 0 4px; font-family:'Inter',Helvetica,Arial,sans-serif; font-size:13px; line-height:20px; color:rgba(251,248,241,0.6);">6162 Trans-Canada Hwy, Malakwa, BC &middot; (250) 836-4097</p>
+              <p style="margin:0 0 14px; font-family:'Inter',Helvetica,Arial,sans-serif; font-size:13px; line-height:20px; color:rgba(251,248,241,0.6);">Open year-round &middot; 365 days &middot; Walk-ins welcome</p>
+              <p style="margin:0; font-family:'Inter',Helvetica,Arial,sans-serif; font-size:12px; line-height:18px; color:rgba(251,248,241,0.45);">You&rsquo;re receiving this because you visited or subscribed at Crazy Creek Resort. <a href="{{unsubscribe_link}}" style="color:#D9A441; text-decoration:underline;">Unsubscribe</a> anytime.</p>
             </td>
           </tr>
 
@@ -259,4 +228,3 @@
   </table>
 </body>
 </html>
-
