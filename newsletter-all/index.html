@@ -1,244 +1,190 @@
-﻿<!--
-  SUBJECT LINE A: One resort, every season â€” cabins, hot pools, camping & more
-  SUBJECT LINE B: {{contact.first_name | default: "there"}}, this is everything at Crazy Creek
-  PREHEADER (<=90 chars): Cabins, hot pools, camping, sledding & summer concerts â€” all on one BC site.
-
-  IMAGES TO SOURCE (currently https://crazy-creek-lp.vercel.app/new-images/rv-premium-pullthrough-mountain-morning.webp):
-   1. RV & Camping â€” a summer riverside campsite shot on the Eagle River (tents/RVs, water, trees).
-   2. Family Reunions & Groups â€” a summer group/gathering shot, or a wide multi-cabin site view.
-   3. (Optional) Summer concert â€” an outdoor live-music/crowd shot for the events mention.
--->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--
+  Crazy Creek — "The Creek Dispatch" (general / all)  ·  EDITORIAL redesign v2
+  Aesthetic: cream canvas + pine green + amber, Fraunces serif display (Georgia fallback).
+  Subject A: One resort, five ways to stay — Malakwa, BC
+  Subject B: {{contact.first_name | default: "there"}}, the whole Creek in one place
+  Preheader: Cabins, hot pools, camping, sledding & summer concerts — one site off the Trans-Canada.
+-->
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="color-scheme" content="light" />
-  <title>Crazy Creek Resort â€” One Resort, Every Season</title>
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&display=swap" rel="stylesheet" />
+  <title>Crazy Creek Resort</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <style>
-    /* Progressive enhancement ONLY â€” clients that strip this still work via inline styles. */
-    body { margin:0; padding:0; background:#F0F8FF; }
+    body { margin:0; padding:0; background:#EAE3D4; }
     img { -ms-interpolation-mode:bicubic; }
     a { text-decoration:none; }
     @media only screen and (max-width:620px) {
       .container { width:100% !important; }
-      .stack { display:block !important; width:100% !important; padding-left:0 !important; padding-right:0 !important; }
-      .stack-gap { height:14px !important; line-height:14px !important; }
       .px { padding-left:24px !important; padding-right:24px !important; }
-      .h1 { font-size:34px !important; line-height:38px !important; }
+      .h1 { font-size:40px !important; line-height:42px !important; }
+      .stack { display:block !important; width:100% !important; }
     }
   </style>
 </head>
-<body style="margin:0; padding:0; background:#F0F8FF;">
-  <!-- Preheader (hidden preview text) -->
-  <div style="display:none; max-height:0; overflow:hidden; opacity:0; color:#F0F8FF;">
-    Cabins, hot pools, camping, sledding &amp; summer concerts â€” all on one BC site.
-  </div>
+<body style="margin:0; padding:0; background:#EAE3D4;">
+  <div style="display:none; max-height:0; overflow:hidden; opacity:0; color:#EAE3D4;">Cabins, hot pools, camping, sledding &amp; summer concerts &mdash; one site off the Trans-Canada.</div>
 
-  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#F0F8FF;">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#EAE3D4;">
     <tr>
-      <td align="center" style="padding:24px 12px;">
-        <table role="presentation" class="container" width="600" cellpadding="0" cellspacing="0" style="width:600px; max-width:600px; background:#FFFFFF; border-radius:14px; overflow:hidden;">
+      <td align="center" style="padding:26px 12px;">
+        <table role="presentation" class="container" width="600" cellpadding="0" cellspacing="0" style="width:600px; max-width:600px; background:#FBF8F1;">
 
           <!-- Brand bar -->
           <tr>
-            <td align="center" bgcolor="#050E1D" style="background:#050E1D; padding:16px 24px;">
-              <span style="font-family:'Oswald','Arial Narrow',Impact,sans-serif; letter-spacing:3px; font-size:13px; color:#00C4E0; text-transform:uppercase;">Crazy Creek Resort &middot; Malakwa BC</span>
+            <td align="center" bgcolor="#123024" style="background:#123024; padding:14px 24px;">
+              <span style="font-family:'Inter',Helvetica,Arial,sans-serif; letter-spacing:4px; font-size:11px; font-weight:600; color:#D9A441; text-transform:uppercase;">Crazy Creek Resort &nbsp;&middot;&nbsp; Malakwa, BC</span>
             </td>
           </tr>
 
-          <!-- HERO image -->
+          <!-- Hero image -->
           <tr>
             <td style="padding:0;">
-              <img src="https://crazy-creek-lp.vercel.app/hot-pool-steam-dusk.webp" width="600" alt="Steam rising off the Crazy Creek hot pools at dusk" style="display:block; border:0; width:100%; max-width:600px; height:auto;" />
+              <img src="https://crazy-creek-lp.vercel.app/pool-area-summer-guests.webp" width="600" alt="Guests in the hot pools at Crazy Creek Resort with mountains behind" style="display:block; border:0; width:100%; max-width:600px; height:auto;" />
             </td>
           </tr>
-          <!-- HERO copy + above-fold CTA -->
+
+          <!-- Hero copy block (pine) -->
           <tr>
-            <td align="center" bgcolor="#0F172A" style="background:#0F172A; padding:36px 40px 34px; text-align:center;" class="px">
-              <p style="margin:0 0 12px; font-family:'Oswald','Arial Narrow',Impact,sans-serif; letter-spacing:3px; font-size:13px; color:#00C4E0; text-transform:uppercase;">Malakwa, British Columbia</p>
-              <h1 class="h1" style="margin:0 0 14px; font-family:'Oswald','Arial Narrow',Impact,sans-serif; font-weight:700; font-size:44px; line-height:46px; color:#FFFFFF; text-transform:uppercase;">One Resort.<br />Every Season.</h1>
-              <p style="margin:0 auto 26px; max-width:440px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; font-size:17px; line-height:27px; color:rgba(240,248,255,0.85);">Cabins, hot pools, camping, sledding, and summer concerts â€” all on one site in Malakwa, BC, just off the Trans-Canada.</p>
-              <!-- Bulletproof CTA -->
+            <td bgcolor="#123024" style="background:#123024; padding:40px 44px 38px;" class="px">
+              <p style="margin:0 0 14px; font-family:'Inter',Helvetica,Arial,sans-serif; letter-spacing:3px; font-size:12px; font-weight:600; color:#D9A441; text-transform:uppercase;">Malakwa &middot; British Columbia</p>
+              <h1 class="h1" style="margin:0 0 16px; font-family:'Fraunces','Georgia',serif; font-weight:600; font-size:52px; line-height:52px; color:#FBF8F1;">One resort,<br />five ways to stay.</h1>
+              <p style="margin:0 0 26px; font-family:'Inter',Helvetica,Arial,sans-serif; font-size:16px; line-height:26px; color:rgba(251,248,241,0.82);">Cabins, four-season hot pools, riverside camping, sled-in winters, and live summer concerts &mdash; all on one site, right off the Trans-Canada. 30 minutes west of Revelstoke.</p>
+              <!-- Centered CTA -->
               <table role="presentation" align="center" cellpadding="0" cellspacing="0" style="margin:0 auto;">
                 <tr>
-                  <td align="center" bgcolor="#0077A0" style="background:#0077A0; border-radius:8px;">
-                    <a href="https://listing.crazycreekresort.com/all-891018" style="display:inline-block; padding:15px 34px; font-family:'Oswald','Arial Narrow',Impact,sans-serif; font-size:16px; letter-spacing:1px; color:#FFFFFF; text-transform:uppercase;">Check Availability</a>
+                  <td align="center" bgcolor="#D9A441" style="background:#D9A441;">
+                    <a href="https://listing.crazycreekresort.com/all-891018" style="display:inline-block; padding:15px 40px; font-family:'Inter',Helvetica,Arial,sans-serif; font-size:14px; font-weight:600; letter-spacing:1.5px; color:#123024; text-transform:uppercase;">Check Availability</a>
                   </td>
                 </tr>
               </table>
-              <p style="margin:18px 0 0; font-family:-apple-system,Helvetica,Arial,sans-serif; font-size:13px; letter-spacing:0.5px; color:rgba(240,248,255,0.6);">4.4&#9733; on Google &middot; Open year-round &middot; 30 min from Revelstoke</p>
+              <p style="margin:22px 0 0; font-family:'Inter',Helvetica,Arial,sans-serif; font-size:12px; color:rgba(251,248,241,0.6); text-align:center;">4.4&#9733; on Google &nbsp;&middot;&nbsp; Open 365 days &nbsp;&middot;&nbsp; 30 min from Revelstoke</p>
             </td>
           </tr>
 
-          <!-- STAT ROW -->
+          <!-- Stat row -->
           <tr>
-            <td style="padding:26px 40px 0;" class="px">
-              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" bgcolor="#F0F8FF" style="background:#F0F8FF; border-radius:10px;">
+            <td style="padding:34px 44px 6px;" class="px">
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
                 <tr>
-                  <td class="stack" width="33%" align="center" style="padding:20px 8px;">
-                    <div style="font-family:'Oswald','Arial Narrow',Impact,sans-serif; font-weight:700; font-size:30px; color:#0077A0;">32</div>
-                    <div style="font-family:-apple-system,Helvetica,Arial,sans-serif; font-size:12px; color:#6B7280; text-transform:uppercase; letter-spacing:1px;">Cabins</div>
+                  <td class="stack" width="33%" align="center" style="padding:6px 4px;">
+                    <div style="font-family:'Fraunces','Georgia',serif; font-weight:600; font-size:40px; color:#1E5A41;">32</div>
+                    <div style="font-family:'Inter',Helvetica,Arial,sans-serif; font-size:11px; color:#6B6559; text-transform:uppercase; letter-spacing:1.5px; padding-top:2px;">Forest cabins</div>
                   </td>
-                  <td class="stack" width="33%" align="center" style="padding:20px 8px;">
-                    <div style="font-family:'Oswald','Arial Narrow',Impact,sans-serif; font-weight:700; font-size:30px; color:#0077A0;">100+</div>
-                    <div style="font-family:-apple-system,Helvetica,Arial,sans-serif; font-size:12px; color:#6B7280; text-transform:uppercase; letter-spacing:1px;">Campsites</div>
+                  <td class="stack" width="33%" align="center" style="padding:6px 4px;">
+                    <div style="font-family:'Fraunces','Georgia',serif; font-weight:600; font-size:40px; color:#1E5A41;">100+</div>
+                    <div style="font-family:'Inter',Helvetica,Arial,sans-serif; font-size:11px; color:#6B6559; text-transform:uppercase; letter-spacing:1.5px; padding-top:2px;">Campsites</div>
                   </td>
-                  <td class="stack" width="33%" align="center" style="padding:20px 8px;">
-                    <div style="font-family:'Oswald','Arial Narrow',Impact,sans-serif; font-weight:700; font-size:30px; color:#0077A0;">4</div>
-                    <div style="font-family:-apple-system,Helvetica,Arial,sans-serif; font-size:12px; color:#6B7280; text-transform:uppercase; letter-spacing:1px;">Hot Pools &middot; 365 Days</div>
-                  </td>
-                </tr>
-              </table>
-            </td>
-          </tr>
-
-          <!-- SECTION HEADING -->
-          <tr>
-            <td align="center" style="padding:36px 40px 0; text-align:center;" class="px">
-              <p style="margin:0 0 6px; font-family:'Oswald','Arial Narrow',Impact,sans-serif; letter-spacing:2px; font-size:12px; color:#0077A0; text-transform:uppercase;">Everything at Crazy Creek</p>
-              <h2 style="margin:0; font-family:'Oswald','Arial Narrow',Impact,sans-serif; font-weight:600; font-size:26px; line-height:30px; color:#0F172A; text-transform:uppercase;">Pick Your Stay</h2>
-              <table role="presentation" align="center" cellpadding="0" cellspacing="0" style="margin:12px auto 0;"><tr><td style="width:56px; height:3px; background:#00C4E0; font-size:0; line-height:0;">&nbsp;</td></tr></table>
-            </td>
-          </tr>
-
-          <!-- OFFERING 1: FOREST CABINS -->
-          <tr>
-            <td style="padding:26px 40px 0;" class="px">
-              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border:1px solid #E5EAF1; border-radius:12px; overflow:hidden;">
-                <tr>
-                  <td style="padding:0;">
-                    <img src="https://crazy-creek-lp.vercel.app/cabin-selkirk-aframe-exterior.webp" width="520" alt="A-frame forest cabin exterior at Crazy Creek" style="display:block; border:0; width:100%; max-width:100%; height:auto;" />
-                  </td>
-                </tr>
-                <tr>
-                  <td style="padding:20px 22px 22px;">
-                    <p style="margin:0 0 3px; font-family:'Oswald','Arial Narrow',Impact,sans-serif; letter-spacing:1px; font-size:12px; color:#0077A0; text-transform:uppercase;">Forest Cabins</p>
-                    <h3 style="margin:0 0 8px; font-family:'Oswald','Arial Narrow',Impact,sans-serif; font-size:21px; color:#0F172A; text-transform:uppercase;">Six Cabin Types, Couples To Groups Of Six</h3>
-                    <p style="margin:0 0 16px; font-family:-apple-system,Helvetica,Arial,sans-serif; font-size:15px; line-height:23px; color:#6B7280;">Kitchen, private fire pit, complimentary hot pools access â€” and no resort fees.</p>
-                    <table role="presentation" cellpadding="0" cellspacing="0"><tr><td align="center" bgcolor="#0077A0" style="background:#0077A0; border-radius:8px;"><a href="https://listing.crazycreekresort.com/cabins-394053" style="display:inline-block; padding:13px 30px; font-family:'Oswald','Arial Narrow',Impact,sans-serif; font-size:15px; letter-spacing:1px; color:#FFFFFF; text-transform:uppercase;">Explore Cabins</a></td></tr></table>
+                  <td class="stack" width="33%" align="center" style="padding:6px 4px;">
+                    <div style="font-family:'Fraunces','Georgia',serif; font-weight:600; font-size:40px; color:#1E5A41;">4</div>
+                    <div style="font-family:'Inter',Helvetica,Arial,sans-serif; font-size:11px; color:#6B6559; text-transform:uppercase; letter-spacing:1.5px; padding-top:2px;">Hot pools &middot; 365 days</div>
                   </td>
                 </tr>
               </table>
             </td>
           </tr>
 
-          <!-- OFFERING 2: HOT POOLS -->
+          <!-- Section intro -->
           <tr>
-            <td style="padding:20px 40px 0;" class="px">
-              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border:1px solid #E5EAF1; border-radius:12px; overflow:hidden;">
+            <td align="center" style="padding:30px 44px 4px;" class="px">
+              <p style="margin:0 0 6px; font-family:'Inter',Helvetica,Arial,sans-serif; letter-spacing:3px; font-size:11px; font-weight:600; color:#B07A1E; text-transform:uppercase;">Pick your stay</p>
+              <table role="presentation" cellpadding="0" cellspacing="0" align="center" style="margin:8px auto 0;"><tr><td style="width:44px; height:2px; background:#D9A441; font-size:0; line-height:0;">&nbsp;</td></tr></table>
+            </td>
+          </tr>
+
+          <!-- ITEM: Cabins -->
+          <tr><td style="padding:24px 0 0;"><img src="https://crazy-creek-lp.vercel.app/cabin-selkirk-aframe-exterior.webp" width="600" alt="A-frame forest cabin at Crazy Creek in the snow" style="display:block; border:0; width:100%; max-width:600px; height:auto;" /></td></tr>
+          <tr>
+            <td style="padding:22px 44px 0;" class="px">
+              <p style="margin:0 0 6px; font-family:'Inter',Helvetica,Arial,sans-serif; letter-spacing:2px; font-size:11px; font-weight:600; color:#B07A1E; text-transform:uppercase;">Forest Cabins</p>
+              <h2 style="margin:0 0 8px; font-family:'Fraunces','Georgia',serif; font-weight:600; font-size:28px; line-height:30px; color:#1C1A16;">Six layouts, couples to groups of six</h2>
+              <p style="margin:0 0 16px; font-family:'Inter',Helvetica,Arial,sans-serif; font-size:15px; line-height:25px; color:#4A463E;">Every cabin: a full kitchen, private fire pit, and complimentary hot pools access &mdash; no resort fees, ever.</p>
+              <table role="presentation" align="center" cellpadding="0" cellspacing="0" style="margin:0 auto 4px;"><tr><td align="center" style="border:2px solid #1E5A41;"><a href="https://listing.crazycreekresort.com/cabins-394053" style="display:inline-block; padding:11px 30px; font-family:'Inter',Helvetica,Arial,sans-serif; font-size:13px; font-weight:600; letter-spacing:1.2px; color:#1E5A41; text-transform:uppercase;">Explore Cabins</a></td></tr></table>
+            </td>
+          </tr>
+
+          <tr><td style="padding:30px 44px 0;" class="px"><table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr><td style="height:1px; background:#E4DCC9; font-size:0; line-height:0;">&nbsp;</td></tr></table></td></tr>
+
+          <!-- ITEM: Hot Pools -->
+          <tr><td style="padding:24px 0 0;"><img src="https://crazy-creek-lp.vercel.app/hot-pool-night-dark.webp" width="600" alt="Hot pools glowing blue at night at Crazy Creek" style="display:block; border:0; width:100%; max-width:600px; height:auto;" /></td></tr>
+          <tr>
+            <td style="padding:22px 44px 0;" class="px">
+              <p style="margin:0 0 6px; font-family:'Inter',Helvetica,Arial,sans-serif; letter-spacing:2px; font-size:11px; font-weight:600; color:#B07A1E; text-transform:uppercase;">Hot Pools</p>
+              <h2 style="margin:0 0 8px; font-family:'Fraunces','Georgia',serif; font-weight:600; font-size:28px; line-height:30px; color:#1C1A16;">40&deg;C soak to 8&deg;C plunge</h2>
+              <p style="margin:0 0 16px; font-family:'Inter',Helvetica,Arial,sans-serif; font-size:15px; line-height:25px; color:#4A463E;">Four mountain-fed pools, open 365 days, 9am&ndash;10pm. Walk in, no booking &mdash; from CA$19.95 an adult.</p>
+              <table role="presentation" align="center" cellpadding="0" cellspacing="0" style="margin:0 auto 4px;"><tr><td align="center" style="border:2px solid #1E5A41;"><a href="https://listing.crazycreekresort.com/hot-pools-525932" style="display:inline-block; padding:11px 30px; font-family:'Inter',Helvetica,Arial,sans-serif; font-size:13px; font-weight:600; letter-spacing:1.2px; color:#1E5A41; text-transform:uppercase;">Plan a Soak</a></td></tr></table>
+            </td>
+          </tr>
+
+          <tr><td style="padding:30px 44px 0;" class="px"><table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr><td style="height:1px; background:#E4DCC9; font-size:0; line-height:0;">&nbsp;</td></tr></table></td></tr>
+
+          <!-- ITEM: RV & Camping -->
+          <tr><td style="padding:24px 0 0;"><img src="https://crazy-creek-lp.vercel.app/new-images/rv-premium-pullthrough-mountain-morning.webp" width="600" alt="RV pull-through site with mountains at Crazy Creek" style="display:block; border:0; width:100%; max-width:600px; height:auto;" /></td></tr>
+          <tr>
+            <td style="padding:22px 44px 0;" class="px">
+              <p style="margin:0 0 6px; font-family:'Inter',Helvetica,Arial,sans-serif; letter-spacing:2px; font-size:11px; font-weight:600; color:#B07A1E; text-transform:uppercase;">RV &amp; Camping</p>
+              <h2 style="margin:0 0 8px; font-family:'Fraunces','Georgia',serif; font-weight:600; font-size:28px; line-height:30px; color:#1C1A16;">On the Eagle River, near Revelstoke</h2>
+              <p style="margin:0 0 16px; font-family:'Inter',Helvetica,Arial,sans-serif; font-size:15px; line-height:25px; color:#4A463E;">Dry sites to full-service 50-amp &mdash; water and sewer, no generator, no water runs. Reserve now, pay only the first night.</p>
+              <table role="presentation" align="center" cellpadding="0" cellspacing="0" style="margin:0 auto 4px;"><tr><td align="center" style="border:2px solid #1E5A41;"><a href="https://listing.crazycreekresort.com/rv-camping-534079" style="display:inline-block; padding:11px 30px; font-family:'Inter',Helvetica,Arial,sans-serif; font-size:13px; font-weight:600; letter-spacing:1.2px; color:#1E5A41; text-transform:uppercase;">See Camping</a></td></tr></table>
+            </td>
+          </tr>
+
+          <tr><td style="padding:30px 44px 0;" class="px"><table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr><td style="height:1px; background:#E4DCC9; font-size:0; line-height:0;">&nbsp;</td></tr></table></td></tr>
+
+          <!-- ITEM: Sled-and-Stay -->
+          <tr><td style="padding:24px 0 0;"><img src="https://crazy-creek-lp.vercel.app/snowmobile-action-powder.webp" width="600" alt="Snowmobiler riding deep powder near Eagle Pass" style="display:block; border:0; width:100%; max-width:600px; height:auto;" /></td></tr>
+          <tr>
+            <td style="padding:22px 44px 0;" class="px">
+              <p style="margin:0 0 6px; font-family:'Inter',Helvetica,Arial,sans-serif; letter-spacing:2px; font-size:11px; font-weight:600; color:#B07A1E; text-transform:uppercase;">Sled-and-Stay</p>
+              <h2 style="margin:0 0 8px; font-family:'Fraunces','Georgia',serif; font-weight:600; font-size:28px; line-height:30px; color:#1C1A16;">Eagle Pass, five minutes away</h2>
+              <p style="margin:0 0 16px; font-family:'Inter',Helvetica,Arial,sans-serif; font-size:15px; line-height:25px; color:#4A463E;">Five riding zones, deep snow December through March, and hot-pools recovery every night. Park the rig, ride, repeat.</p>
+              <table role="presentation" align="center" cellpadding="0" cellspacing="0" style="margin:0 auto 4px;"><tr><td align="center" style="border:2px solid #1E5A41;"><a href="https://listing.crazycreekresort.com/sled-and-stay-597289" style="display:inline-block; padding:11px 30px; font-family:'Inter',Helvetica,Arial,sans-serif; font-size:13px; font-weight:600; letter-spacing:1.2px; color:#1E5A41; text-transform:uppercase;">Winter Base Camp</a></td></tr></table>
+            </td>
+          </tr>
+
+          <!-- ITEM: Family / Groups (pine card) -->
+          <tr>
+            <td style="padding:30px 44px 0;" class="px">
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" bgcolor="#123024" style="background:#123024;">
                 <tr>
-                  <td style="padding:0;">
-                    <img src="https://crazy-creek-lp.vercel.app/hot-pool-night-dark.webp" width="520" alt="Glowing hot pool at night at Crazy Creek" style="display:block; border:0; width:100%; max-width:100%; height:auto;" />
-                  </td>
-                </tr>
-                <tr>
-                  <td style="padding:20px 22px 22px;">
-                    <p style="margin:0 0 3px; font-family:'Oswald','Arial Narrow',Impact,sans-serif; letter-spacing:1px; font-size:12px; color:#0077A0; text-transform:uppercase;">Hot Pools</p>
-                    <h3 style="margin:0 0 8px; font-family:'Oswald','Arial Narrow',Impact,sans-serif; font-size:21px; color:#0F172A; text-transform:uppercase;">40&deg;C Thermal Soak To 8&deg;C Cold Plunge</h3>
-                    <p style="margin:0 0 16px; font-family:-apple-system,Helvetica,Arial,sans-serif; font-size:15px; line-height:23px; color:#6B7280;">Four pools, open 365 days, 9am&ndash;10pm. Day visitors welcome, no booking needed &mdash; from CA$19.95.</p>
-                    <table role="presentation" cellpadding="0" cellspacing="0"><tr><td align="center" bgcolor="#0077A0" style="background:#0077A0; border-radius:8px;"><a href="https://listing.crazycreekresort.com/hot-pools-525932" style="display:inline-block; padding:13px 30px; font-family:'Oswald','Arial Narrow',Impact,sans-serif; font-size:15px; letter-spacing:1px; color:#FFFFFF; text-transform:uppercase;">Plan A Soak</a></td></tr></table>
+                  <td style="padding:30px 32px;">
+                    <p style="margin:0 0 6px; font-family:'Inter',Helvetica,Arial,sans-serif; letter-spacing:2px; font-size:11px; font-weight:600; color:#D9A441; text-transform:uppercase;">Family Reunions &amp; Groups</p>
+                    <h2 style="margin:0 0 10px; font-family:'Fraunces','Georgia',serif; font-weight:600; font-size:26px; line-height:29px; color:#FBF8F1;">One site for the whole crew</h2>
+                    <p style="margin:0 0 20px; font-family:'Inter',Helvetica,Arial,sans-serif; font-size:15px; line-height:24px; color:rgba(251,248,241,0.82);">32 cabins and 100+ campsites on one property &mdash; one location pin, one point of contact. Group calendar opens a week before the public.</p>
+                    <table role="presentation" align="center" cellpadding="0" cellspacing="0" style="margin:0 auto;"><tr><td align="center" bgcolor="#D9A441" style="background:#D9A441;"><a href="https://listing.crazycreekresort.com/family-reunion-593522" style="display:inline-block; padding:12px 30px; font-family:'Inter',Helvetica,Arial,sans-serif; font-size:13px; font-weight:600; letter-spacing:1.2px; color:#123024; text-transform:uppercase;">Plan a Group Stay</a></td></tr></table>
                   </td>
                 </tr>
               </table>
             </td>
           </tr>
 
-          <!-- OFFERING 3: RV & CAMPING -->
+          <!-- Summer note -->
           <tr>
-            <td style="padding:20px 40px 0;" class="px">
-              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border:1px solid #E5EAF1; border-radius:12px; overflow:hidden;">
-                <tr>
-                  <td style="padding:0;">
-                    <img src="https://crazy-creek-lp.vercel.app/pool-area-summer-guests.webp" width="520" alt="Summer riverside campsite on the Eagle River at Crazy Creek" style="display:block; border:0; width:100%; max-width:100%; height:auto;" />
-                  </td>
-                </tr>
-                <tr>
-                  <td style="padding:20px 22px 22px;">
-                    <p style="margin:0 0 3px; font-family:'Oswald','Arial Narrow',Impact,sans-serif; letter-spacing:1px; font-size:12px; color:#0077A0; text-transform:uppercase;">RV &amp; Camping</p>
-                    <h3 style="margin:0 0 8px; font-family:'Oswald','Arial Narrow',Impact,sans-serif; font-size:21px; color:#0F172A; text-transform:uppercase;">100+ Sites On The Eagle River</h3>
-                    <p style="margin:0 0 16px; font-family:-apple-system,Helvetica,Arial,sans-serif; font-size:15px; line-height:23px; color:#6B7280;">Dry sites to full-service 50 amp. Reserve now &mdash; pay only the first night.</p>
-                    <table role="presentation" cellpadding="0" cellspacing="0"><tr><td align="center" bgcolor="#0077A0" style="background:#0077A0; border-radius:8px;"><a href="https://listing.crazycreekresort.com/rv-camping-534079" style="display:inline-block; padding:13px 30px; font-family:'Oswald','Arial Narrow',Impact,sans-serif; font-size:15px; letter-spacing:1px; color:#FFFFFF; text-transform:uppercase;">See Camping</a></td></tr></table>
-                  </td>
-                </tr>
-              </table>
+            <td align="center" style="padding:30px 48px 8px;" class="px">
+              <p style="margin:0 0 6px; font-family:'Inter',Helvetica,Arial,sans-serif; letter-spacing:2px; font-size:11px; font-weight:600; color:#B07A1E; text-transform:uppercase;">And in summer</p>
+              <p style="margin:0; font-family:'Inter',Helvetica,Arial,sans-serif; font-size:15px; line-height:25px; color:#4A463E;">Live concerts come to the resort in July and August &mdash; guests walk straight from the cabin to the music. Book early; the best weekends go first.</p>
             </td>
           </tr>
 
-          <!-- OFFERING 4: SLED-AND-STAY -->
+          <!-- Closing CTA -->
           <tr>
-            <td style="padding:20px 40px 0;" class="px">
-              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border:1px solid #E5EAF1; border-radius:12px; overflow:hidden;">
-                <tr>
-                  <td style="padding:0;">
-                    <img src="https://crazy-creek-lp.vercel.app/new-images/cabin-nest-exterior-copper-roof-summer.webp" width="520" alt="Cabin fire pit glowing at night in the snow at Crazy Creek" style="display:block; border:0; width:100%; max-width:100%; height:auto;" />
-                  </td>
-                </tr>
-                <tr>
-                  <td style="padding:20px 22px 22px;">
-                    <p style="margin:0 0 3px; font-family:'Oswald','Arial Narrow',Impact,sans-serif; letter-spacing:1px; font-size:12px; color:#0077A0; text-transform:uppercase;">Sled-And-Stay</p>
-                    <h3 style="margin:0 0 8px; font-family:'Oswald','Arial Narrow',Impact,sans-serif; font-size:21px; color:#0F172A; text-transform:uppercase;">Eagle Pass, 5 Minutes Away</h3>
-                    <p style="margin:0 0 16px; font-family:-apple-system,Helvetica,Arial,sans-serif; font-size:15px; line-height:23px; color:#6B7280;">300cm+ snowpack, 5 riding zones, Dec&ndash;Mar &mdash; with hot pools recovery every night.</p>
-                    <table role="presentation" cellpadding="0" cellspacing="0"><tr><td align="center" bgcolor="#0077A0" style="background:#0077A0; border-radius:8px;"><a href="https://listing.crazycreekresort.com/sled-and-stay-597289" style="display:inline-block; padding:13px 30px; font-family:'Oswald','Arial Narrow',Impact,sans-serif; font-size:15px; letter-spacing:1px; color:#FFFFFF; text-transform:uppercase;">Winter Base Camp</a></td></tr></table>
-                  </td>
-                </tr>
-              </table>
+            <td align="center" style="padding:24px 44px 34px;" class="px">
+              <p style="margin:0 0 18px; font-family:'Fraunces','Georgia',serif; font-style:italic; font-size:19px; line-height:26px; color:#1C1A16;">{{contact.first_name | default: "there"}}, whatever the season, it&rsquo;s all on one site.</p>
+              <table role="presentation" align="center" cellpadding="0" cellspacing="0" style="margin:0 auto;"><tr><td align="center" bgcolor="#1E5A41" style="background:#1E5A41;"><a href="https://listing.crazycreekresort.com/all-891018" style="display:inline-block; padding:15px 42px; font-family:'Inter',Helvetica,Arial,sans-serif; font-size:14px; font-weight:600; letter-spacing:1.5px; color:#FBF8F1; text-transform:uppercase;">Check Availability</a></td></tr></table>
             </td>
           </tr>
 
-          <!-- OFFERING 5: FAMILY REUNIONS & GROUPS (no image, compact) -->
+          <!-- Footer -->
           <tr>
-            <td style="padding:20px 40px 0;" class="px">
-              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" bgcolor="#0F172A" style="background:#0F172A; border-radius:12px;">
-                <tr>
-                  <td style="padding:24px 24px 26px;">
-                    <p style="margin:0 0 3px; font-family:'Oswald','Arial Narrow',Impact,sans-serif; letter-spacing:1px; font-size:12px; color:#00C4E0; text-transform:uppercase;">Family Reunions &amp; Groups</p>
-                    <h3 style="margin:0 0 8px; font-family:'Oswald','Arial Narrow',Impact,sans-serif; font-size:21px; color:#FFFFFF; text-transform:uppercase;">One Site For 300+ Guests</h3>
-                    <p style="margin:0 0 16px; font-family:-apple-system,Helvetica,Arial,sans-serif; font-size:15px; line-height:23px; color:rgba(240,248,255,0.8);">32 cabins plus 100+ campsites, a conference room for 40+, and one coordinator to run it all.</p>
-                    <table role="presentation" cellpadding="0" cellspacing="0"><tr><td align="center" bgcolor="#00C4E0" style="background:#00C4E0; border-radius:8px;"><a href="https://listing.crazycreekresort.com/family-reunion-593522" style="display:inline-block; padding:13px 30px; font-family:'Oswald','Arial Narrow',Impact,sans-serif; font-size:15px; letter-spacing:1px; color:#0F172A; text-transform:uppercase;">Plan A Group Stay</a></td></tr></table>
-                  </td>
-                </tr>
-              </table>
-            </td>
-          </tr>
-
-          <!-- SUMMER CONCERTS MENTION -->
-          <tr>
-            <td align="center" style="padding:30px 40px 0; text-align:center;" class="px">
-              <p style="margin:0 0 6px; font-family:'Oswald','Arial Narrow',Impact,sans-serif; letter-spacing:2px; font-size:12px; color:#0077A0; text-transform:uppercase;">And In Summer</p>
-              <p style="margin:0 auto; max-width:460px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; font-size:16px; line-height:26px; color:#374151;">Live concerts come to the resort in July and August &mdash; guests just walk to the music. Add hiking trails right out the door, and there's a reason to come back every season.</p>
-            </td>
-          </tr>
-
-          <!-- DIVIDER -->
-          <tr><td style="padding:28px 40px 0;" class="px"><table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr><td style="height:1px; background:#E5EAF1; font-size:0; line-height:0;">&nbsp;</td></tr></table></td></tr>
-
-          <!-- FINAL CTA -->
-          <tr>
-            <td align="center" style="padding:28px 40px 0; text-align:center;" class="px">
-              <p style="margin:0 auto 22px; max-width:460px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; font-size:17px; line-height:27px; color:#0F172A;">{{contact.first_name | default: "there"}}, whatever the season, it's all on one site. Check what's open for your dates.</p>
-              <table role="presentation" align="center" cellpadding="0" cellspacing="0" style="margin:0 auto;">
-                <tr>
-                  <td align="center" bgcolor="#0077A0" style="background:#0077A0; border-radius:8px;">
-                    <a href="https://listing.crazycreekresort.com/all-891018" style="display:inline-block; padding:16px 38px; font-family:'Oswald','Arial Narrow',Impact,sans-serif; font-size:17px; letter-spacing:1px; color:#FFFFFF; text-transform:uppercase;">Check Availability</a>
-                  </td>
-                </tr>
-              </table>
-            </td>
-          </tr>
-
-          <!-- FOOTER -->
-          <tr>
-            <td bgcolor="#050E1D" style="background:#050E1D; padding:32px 40px; margin-top:34px;" class="px">
-              <p style="margin:0 0 8px; font-family:'Oswald','Arial Narrow',Impact,sans-serif; font-size:16px; color:#FFFFFF; text-transform:uppercase; letter-spacing:2px;">Crazy Creek Resort</p>
-              <p style="margin:0 0 4px; font-family:Helvetica,Arial,sans-serif; font-size:13px; line-height:20px; color:rgba(240,248,255,0.6);">6162 Trans-Canada Hwy, Malakwa, BC &middot; (250) 836-4097</p>
-              <p style="margin:0 0 14px; font-family:Helvetica,Arial,sans-serif; font-size:13px; line-height:20px; color:rgba(240,248,255,0.6);">Open year-round &middot; 365 days</p>
-              <p style="margin:0; font-family:Helvetica,Arial,sans-serif; font-size:12px; line-height:18px; color:rgba(240,248,255,0.45);">
-                You're receiving this because you visited or subscribed at Crazy Creek Resort.
-                <a href="{{unsubscribe_link}}" style="color:#00C4E0; text-decoration:underline;">Unsubscribe</a> anytime.
-              </p>
+            <td bgcolor="#0E241B" style="background:#0E241B; padding:30px 44px;" class="px">
+              <p style="margin:0 0 8px; font-family:'Fraunces','Georgia',serif; font-size:18px; color:#FBF8F1;">Crazy Creek Resort</p>
+              <p style="margin:0 0 4px; font-family:'Inter',Helvetica,Arial,sans-serif; font-size:13px; line-height:20px; color:rgba(251,248,241,0.6);">6162 Trans-Canada Hwy, Malakwa, BC &middot; (250) 836-4097</p>
+              <p style="margin:0 0 14px; font-family:'Inter',Helvetica,Arial,sans-serif; font-size:13px; line-height:20px; color:rgba(251,248,241,0.6);">Open year-round &middot; 365 days</p>
+              <p style="margin:0; font-family:'Inter',Helvetica,Arial,sans-serif; font-size:12px; line-height:18px; color:rgba(251,248,241,0.45);">You&rsquo;re receiving this because you visited or subscribed at Crazy Creek Resort. <a href="{{unsubscribe_link}}" style="color:#D9A441; text-decoration:underline;">Unsubscribe</a> anytime.</p>
             </td>
           </tr>
 
@@ -248,5 +194,3 @@
   </table>
 </body>
 </html>
-
-
