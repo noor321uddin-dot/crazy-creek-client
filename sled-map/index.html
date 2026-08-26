@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Crazy Creek — Sled Zone Navigator</title>
+<meta name="description" content="Interactive map to reach the snowmobile staging areas from Crazy Creek Resort, Malakwa BC.">
+<style>html,body{margin:0;background:#0E241B}#ccnavframe{display:block;border:0;width:100%;height:100vh}</style>
+</head>
+<body>
+<!-- Clean full-bleed preview wrapper. The map itself is nav-map-embed.html
+     (a pure fragment built to paste into GoHighLevel). This page just frames
+     it for a standalone public link — it does NOT duplicate the map. -->
+<iframe id="ccnavframe" src="nav-map-embed.html" title="Crazy Creek sled zone navigation map"></iframe>
+<script>
+  var f=document.getElementById('ccnavframe');
+  function fit(){
+    try{
+      var d=f.contentDocument;
+      d.documentElement.style.background='#0E241B';
+      d.body.style.margin='0'; d.body.style.background='#0E241B';
+      f.style.height=(d.body.scrollHeight+8)+'px';
+    }catch(e){}
+  }
+  f.addEventListener('load',function(){fit();setTimeout(fit,1200);setTimeout(fit,3200);});
+  window.addEventListener('resize',fit);
+</script>
+</body>
+</html>

@@ -1,0 +1,452 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Crazy Creek — Sled Zone Map</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- Standalone-preview only: DELETE this block when embedding in a GHL section -->
+<style data-standalone-only>
+  body{margin:0;background:#0E241B;}
+</style>
+
+<style>
+  /* ============================================================
+     Crazy Creek — Sled Zone Map widget.
+     Everything is scoped under .ccsm (classes AND ids prefixed)
+     so it can be pasted into a GHL funnel section without
+     restyling the host page. Responsive behavior keys off the
+     WIDGET's own width (container queries + clientWidth), not
+     the viewport, so it works in narrow embed columns.
+     ============================================================ */
+  .ccsm{
+    --green-900:#0E241B; --green-800:#123024; --green-700:#1E5A41; --green-600:#2E6B4F;
+    --gold:#D9A441; --gold-soft:#E6C078;
+    --cream:#FBF8F1; --cream-2:#EAE3D4;
+    --ink:#1C1A16; --taupe:#6B6559;
+    --contour: rgba(251,248,241,0.14);
+    --contour-strong: rgba(251,248,241,0.26);
+    container-type:inline-size; container-name:ccsm;
+    font-family:'Inter',system-ui,Helvetica,Arial,sans-serif;
+    color:var(--cream);
+    /* explicit width: a content-sized flex/grid wrapper (common in GHL
+       sections) would otherwise collapse an inline-size container to 0 */
+    width:100%; max-width:1200px; margin:0 auto;
+    -webkit-font-smoothing:antialiased;
+  }
+  .ccsm, .ccsm *{box-sizing:border-box}
+
+  /* ===== Stage ===== */
+  .ccsm-stage{
+    position:relative; width:100%; aspect-ratio:1200/760; overflow:hidden;
+    background:radial-gradient(120% 90% at 50% 8%, #16463A 0%, #123024 46%, #0E241B 100%);
+    border-radius:14px;
+  }
+  #ccsm-map{position:absolute;inset:0;width:100%;height:100%;display:block}
+  /* depth vignette over the map, under the HUD/card */
+  .ccsm-stage::after{
+    content:"";position:absolute;inset:0;z-index:2;pointer-events:none;border-radius:inherit;
+    box-shadow:inset 0 0 90px rgba(0,0,0,.38), inset 0 0 20px rgba(0,0,0,.22);
+  }
+
+  /* ===== Overlay text ===== */
+  .ccsm-kicker{
+    font-size:clamp(9px,1cqw,12px);letter-spacing:.28em;text-transform:uppercase;
+    font-weight:600;color:var(--gold);margin:0 0 6px;
+  }
+  .ccsm-kicker::before{
+    content:"";display:inline-block;width:20px;height:1px;background:var(--gold);
+    margin-right:8px;vertical-align:middle;opacity:.9;
+  }
+  .ccsm-title{
+    font-family:'Fraunces',Georgia,serif;font-weight:600;
+    font-size:clamp(24px,4.4cqw,52px);line-height:.98;margin:0;color:var(--cream);
+    text-shadow:0 2px 24px rgba(0,0,0,.45);
+  }
+  .ccsm-sub{
+    margin:10px 0 0;font-size:clamp(11px,1.35cqw,15px);
+    color:rgba(251,248,241,.82);max-width:30ch;line-height:1.5;
+  }
+  .ccsm-hud{position:absolute;top:clamp(14px,3cqw,34px);left:clamp(14px,3cqw,34px);z-index:3;pointer-events:none}
+
+  .ccsm-stats{
+    position:absolute;left:clamp(14px,3cqw,34px);bottom:clamp(14px,3cqw,30px);z-index:3;
+    display:flex;gap:clamp(10px,2cqw,26px);pointer-events:none;flex-wrap:wrap;
+  }
+  .ccsm-stat .n{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(16px,2.4cqw,30px);color:var(--gold);line-height:1}
+  .ccsm-stat .l{font-size:clamp(8px,.95cqw,11px);letter-spacing:.14em;text-transform:uppercase;color:rgba(251,248,241,.7);margin-top:5px}
+
+  .ccsm-legend{
+    position:absolute;right:clamp(14px,3cqw,30px);bottom:clamp(14px,3cqw,30px);z-index:3;
+    background:rgba(14,36,27,.66);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+    border:1px solid rgba(230,192,120,.22);border-radius:10px;
+    padding:11px 13px;font-size:clamp(9px,1cqw,11.5px);color:rgba(251,248,241,.86);
+    display:grid;gap:7px;pointer-events:none;
+  }
+  .ccsm-legend .row{display:flex;align-items:center;gap:8px}
+  .ccsm-legend .sw{flex:0 0 auto;display:inline-block}
+  .ccsm-legend .sw-base{background:var(--gold);border-radius:3px;transform:rotate(45deg);width:11px;height:11px}
+  .ccsm-legend .sw-zone{width:11px;height:11px;border-radius:50%;background:var(--cream);border:2px solid var(--gold)}
+  .ccsm-legend .sw-tbc{width:11px;height:11px;border-radius:50%;background:transparent;border:2px dashed var(--gold-soft)}
+
+  .ccsm-compass{position:absolute;top:clamp(14px,3cqw,26px);right:clamp(14px,3cqw,26px);z-index:3;width:clamp(34px,5cqw,52px);height:clamp(34px,5cqw,52px);opacity:.9;pointer-events:none}
+
+  /* ===== Zone pins ===== */
+  .ccsm-pin{cursor:pointer;outline:none}
+  .ccsm-pin .hit{fill:transparent}
+  .ccsm-pin .dot{
+    transform-box:fill-box;transform-origin:center; /* scale in place — SVG default is view-box origin */
+    transition:transform .2s ease, filter .2s ease;
+  }
+  .ccsm-pin:hover .dot,.ccsm-pin:focus-visible .dot,.ccsm-pin.active .dot{transform:scale(1.18);filter:drop-shadow(0 3px 8px rgba(0,0,0,.5))}
+  .ccsm-pin:focus-visible .ring{opacity:1}
+  .ccsm-pin .ring{opacity:0;transition:opacity .2s ease}
+  .ccsm-plabel{font-family:'Inter',sans-serif;font-weight:600;font-size:15px;fill:var(--cream);paint-order:stroke;stroke:rgba(14,36,27,.85);stroke-width:3.4px;pointer-events:none}
+  .ccsm-ptime{font-family:'Inter',sans-serif;font-weight:600;font-size:11px;fill:var(--green-900)}
+  .ccsm-reach{stroke:var(--gold);stroke-width:1.6;stroke-dasharray:2 6;stroke-linecap:round;fill:none;opacity:.55;transition:opacity .2s ease,stroke .2s ease}
+  .ccsm-reach.ccsm-hot{opacity:1;stroke:var(--gold-soft)}
+  g.ccsm-hot{filter:brightness(1.15)}
+  /* base-camp glow pulse (killed under reduced motion) */
+  .ccsm-basePulse{transform-box:fill-box;transform-origin:center;animation:ccsmPulse 3.6s ease-in-out infinite}
+  @keyframes ccsmPulse{0%,100%{transform:scale(1);opacity:.75}50%{transform:scale(1.22);opacity:1}}
+  .ccsm-valley-label{font-family:'Inter',sans-serif;font-weight:500;font-size:11px;letter-spacing:.12em;fill:rgba(251,248,241,.5);text-transform:uppercase}
+
+  /* ===== Info card (desktop hover/focus) ===== */
+  .ccsm-card{
+    position:absolute;z-index:5;width:min(280px,74cqw);
+    background:rgba(18,48,36,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+    border:1px solid rgba(230,192,120,.32);border-radius:12px;
+    padding:14px 15px 15px;box-shadow:0 18px 44px rgba(0,0,0,.5);
+    opacity:0;visibility:hidden;transform:translateY(6px);pointer-events:none;
+    transition:opacity .18s ease,transform .18s ease,visibility 0s linear .18s;
+  }
+  .ccsm-card.show{opacity:1;visibility:visible;transform:translateY(0);pointer-events:auto;transition:opacity .18s ease,transform .18s ease}
+  .ccsm-card::before{
+    content:"";position:absolute;top:0;left:14px;right:14px;height:2px;border-radius:2px;
+    background:linear-gradient(90deg,rgba(217,164,65,0),rgba(217,164,65,.85),rgba(217,164,65,0));
+  }
+  .ccsm-card h3{font-family:'Fraunces',serif;font-weight:600;font-size:20px;margin:0 0 2px;color:var(--cream)}
+  .ccsm-card .tag{font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:var(--gold)}
+  .ccsm-card .meta{display:flex;gap:16px;margin:11px 0 0}
+  .ccsm-card .meta .k{font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:rgba(251,248,241,.55)}
+  .ccsm-card .meta .v{font-family:'Fraunces',serif;font-size:17px;color:var(--cream);margin-top:3px}
+  .ccsm-card .terr{margin:11px 0 0;font-size:12.5px;line-height:1.45;color:rgba(251,248,241,.8)}
+  .ccsm-card .tbc{margin:11px 0 0;font-size:11px;line-height:1.4;color:var(--gold-soft);border-top:1px solid rgba(230,192,120,.22);padding-top:9px}
+
+  /* ===== Zone list — the accessible/mobile data channel =====
+     Always in the DOM (screen readers get the full data incl.
+     estimated status at every width); visually hidden on wide
+     layouts, shown as cards under the map on narrow ones. */
+  .ccsm-zonelist{
+    position:absolute;width:1px;height:1px;overflow:hidden;
+    clip-path:inset(50%);white-space:nowrap;margin:0;padding:0;
+  }
+  .ccsm-zonelist li{list-style:none}
+
+  /* ===== Narrow container (embed column / phone) ===== */
+  @container ccsm (max-width:640px){
+    .ccsm-sub,.ccsm-stats,.ccsm-legend{display:none}
+    .ccsm-card{display:none}
+    .ccsm-plabel{font-size:26px;stroke-width:5px}
+    .ccsm-ptime{font-size:16px}
+    .ccsm-zonelist{
+      position:static;width:auto;height:auto;overflow:visible;
+      clip-path:none;white-space:normal;
+      display:grid;gap:8px;margin:10px 0 0;
+    }
+    .ccsm-zonelist li{
+      background:var(--green-800);border:1px solid rgba(230,192,120,.22);
+      border-radius:10px;padding:12px 14px;
+      display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;
+    }
+    .ccsm-zonelist .zn{font-family:'Fraunces',serif;font-weight:600;font-size:17px;color:var(--cream);flex:1 1 100%}
+    .ccsm-zonelist .zv{font-size:13px;color:rgba(251,248,241,.85)}
+    .ccsm-zonelist .zt{font-size:13px;color:rgba(251,248,241,.6)}
+    .ccsm-zonelist .ze{flex:1 1 100%;font-size:11px;color:var(--gold-soft)}
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    .ccsm *{transition:none !important;animation:none !important}
+    .ccsm-pin:hover .dot,.ccsm-pin:focus-visible .dot,.ccsm-pin.active .dot{transform:none}
+  }
+</style>
+</head>
+<body>
+  <div class="ccsm" id="ccsm-root">
+    <div class="ccsm-stage" id="ccsm-stage">
+      <svg id="ccsm-map" viewBox="0 0 1200 760" preserveAspectRatio="xMidYMid slice"
+           xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+           role="group"
+           aria-label="Stylized topographic map: Crazy Creek Resort as base camp for five snowmobile riding zones near Malakwa, BC.">
+        <defs>
+          <linearGradient id="ccsmValley" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#1E5A41" stop-opacity="0"/>
+            <stop offset="1" stop-color="#0B1F17" stop-opacity=".9"/>
+          </linearGradient>
+          <radialGradient id="ccsmGlow" cx="50%" cy="50%" r="50%">
+            <stop offset="0" stop-color="#D9A441" stop-opacity=".55"/>
+            <stop offset="1" stop-color="#D9A441" stop-opacity="0"/>
+          </radialGradient>
+          <filter id="ccsmSoft" x="-40%" y="-40%" width="180%" height="180%">
+            <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity=".4"/>
+          </filter>
+        </defs>
+
+        <g id="ccsm-sky"></g>
+        <g id="ccsm-terrain"></g>
+        <rect x="0" y="470" width="1200" height="290" fill="url(#ccsmValley)"/>
+        <path d="M -20 640 C 220 600 380 660 600 612 C 830 560 980 636 1220 596"
+              fill="none" stroke="#7FB8A0" stroke-opacity=".10" stroke-width="9"/>
+        <path d="M -20 640 C 220 600 380 660 600 612 C 830 560 980 636 1220 596"
+              fill="none" stroke="#7FB8A0" stroke-opacity=".5" stroke-width="2.5"/>
+        <path id="ccsm-hwy" d="M -20 690 C 260 664 470 706 640 676 C 860 636 1010 686 1220 660"
+              fill="none" stroke="rgba(251,248,241,.35)" stroke-width="2" stroke-dasharray="10 9"/>
+        <text class="ccsm-valley-label"><textPath href="#ccsm-hwy" xlink:href="#ccsm-hwy" startOffset="34%">Trans-Canada Hwy 1  ·  Malakwa</textPath></text>
+
+        <g id="ccsm-reaches" pointer-events="none"></g>
+        <g id="ccsm-pins"></g>
+      </svg>
+
+      <div class="ccsm-hud">
+        <p class="ccsm-kicker">Crazy Creek Resort · Malakwa, BC</p>
+        <h2 class="ccsm-title">Base camp for<br>5 riding zones</h2>
+        <p class="ccsm-sub">Park the rig, ride the deepest snowpack in North America, soak in the hot pools, dry the gear overnight.</p>
+      </div>
+
+      <svg class="ccsm-compass" viewBox="0 0 100 100" aria-hidden="true">
+        <circle cx="50" cy="50" r="47" fill="rgba(10,26,19,.82)"/>
+        <circle cx="50" cy="50" r="46" fill="none" stroke="rgba(230,192,120,.5)" stroke-width="1.6"/>
+        <circle cx="50" cy="50" r="36.5" fill="none" stroke="rgba(230,192,120,.18)" stroke-width="1"/>
+        <g stroke="rgba(251,248,241,.55)" stroke-width="1.6">
+          <line x1="50" y1="7" x2="50" y2="12"/><line x1="50" y1="88" x2="50" y2="93"/>
+          <line x1="7" y1="50" x2="12" y2="50"/><line x1="88" y1="50" x2="93" y2="50"/>
+        </g>
+        <g stroke="rgba(251,248,241,.28)" stroke-width="1.2">
+          <line x1="20.6" y1="20.6" x2="24.2" y2="24.2"/><line x1="79.4" y1="20.6" x2="75.8" y2="24.2"/>
+          <line x1="20.6" y1="79.4" x2="24.2" y2="75.8"/><line x1="79.4" y1="79.4" x2="75.8" y2="75.8"/>
+        </g>
+        <path d="M22 50 L50 45.5 L78 50 L50 54.5 Z" fill="rgba(251,248,241,.28)"/>
+        <path d="M50 24 L56 50 L50 47.5 L44 50 Z" fill="#D9A441"/>
+        <path d="M50 76 L44 50 L50 52.5 L56 50 Z" fill="rgba(251,248,241,.5)"/>
+        <circle cx="50" cy="50" r="2.6" fill="#D9A441" stroke="#0E241B" stroke-width="1"/>
+        <text x="50" y="20.5" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" font-weight="700" fill="#E6C078" letter-spacing="1">N</text>
+      </svg>
+
+      <div class="ccsm-stats" aria-hidden="true">
+        <div class="ccsm-stat"><div class="n">5&nbsp;min</div><div class="l">To Eagle Pass</div></div>
+        <div class="ccsm-stat"><div class="n">300cm+</div><div class="l">Snowpack</div></div>
+        <div class="ccsm-stat"><div class="n">5</div><div class="l">Riding zones</div></div>
+      </div>
+
+      <div class="ccsm-legend" aria-hidden="true">
+        <div class="row"><span class="sw sw-base"></span> Crazy Creek Resort (base camp)</div>
+        <div class="row"><span class="sw sw-zone"></span> Riding zone — confirmed</div>
+        <div class="row"><span class="sw sw-tbc"></span> Riding zone — figures estimated</div>
+      </div>
+
+      <div class="ccsm-card" id="ccsm-card"></div>
+    </div>
+
+    <!-- Accessible zone data (visible as cards in narrow layouts) -->
+    <ul class="ccsm-zonelist" id="ccsm-zonelist" aria-label="Riding zones from Crazy Creek Resort"></ul>
+  </div>
+
+<script>
+(function () {
+  "use strict";
+  /* ---------- deterministic noise (stable terrain across reloads/exports) ---------- */
+  function mulberry(a){return function(){a|=0;a=a+0x6D2B79F5|0;var t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}
+
+  function ringPath(cx,cy,rx,ry,rnd,wob){
+    var N=22,pts=[];
+    for(var i=0;i<N;i++){
+      var ang=(i/N)*Math.PI*2, n=rnd(), rr=1+(n-0.5)*wob;
+      pts.push([cx+Math.cos(ang)*rx*rr, cy+Math.sin(ang)*ry*rr]);
+    }
+    var n2=pts.length, d="M "+pts[0][0].toFixed(1)+" "+pts[0][1].toFixed(1)+" ";
+    for(var j=0;j<n2;j++){
+      var p0=pts[(j-1+n2)%n2],p1=pts[j],p2=pts[(j+1)%n2],p3=pts[(j+2)%n2];
+      var c1x=p1[0]+(p2[0]-p0[0])/6,c1y=p1[1]+(p2[1]-p0[1])/6;
+      var c2x=p2[0]-(p3[0]-p1[0])/6,c2y=p2[1]-(p3[1]-p1[1])/6;
+      d+="C "+c1x.toFixed(1)+" "+c1y.toFixed(1)+" "+c2x.toFixed(1)+" "+c2y.toFixed(1)+" "+p2[0].toFixed(1)+" "+p2[1].toFixed(1)+" ";
+    }
+    return d+"Z";
+  }
+
+  var mapEl=document.getElementById('ccsm-map');
+  var vb=mapEl.viewBox.baseVal, W=vb.width, H=vb.height;   // single source of canvas size
+  var BASE={x:600,y:558};
+
+  /* ---------- zones (single source of truth: pins, massifs, list) ----------
+     Eagle Pass + Frisby Ridge figures are client-confirmed (Sled-and-Stay
+     newsletter). Boulder/Owlhead/Queest are real BC riding areas but their
+     figures are ESTIMATES pending Jason's confirmation — every surface
+     (pill ~, dashed pin, card line, list line, aria) marks them estimated.
+     massif = the mountain drawn behind the pin (offset below it). */
+  var ZONES=[
+    {id:'eagle', name:'Eagle Pass',       x:722,y:250, time:'5 min',   snow:'300cm+', terr:'Backcountry + powder', confirmed:true,  massif:{dy:50,rx:165,ry:120,rings:8,seed:44}},
+    {id:'frisby',name:'Frisby Ridge',     x:980,y:315, time:'25 min',  snow:'280cm',  terr:'',                     confirmed:true,  massif:{dy:50,rx:150,ry:108,rings:7,seed:55}},
+    {id:'boulder',name:'Boulder Mountain',x:885,y:158, time:'~40 min', snow:'~300cm', terr:'Alpine bowls',         confirmed:false, massif:{dy:47,rx:128,ry:95, rings:6,seed:66}},
+    {id:'owl',   name:'Owlhead',          x:262,y:322, time:'~45 min', snow:'~275cm', terr:'Trees + alpine',       confirmed:false, massif:{dy:43,rx:150,ry:112,rings:7,seed:77}},
+    {id:'queest',name:'Queest Mountain',  x:196,y:468, time:'~35 min', snow:'~280cm', terr:'Alpine + meadows',     confirmed:false, massif:{dy:37,rx:132,ry:96, rings:6,seed:88}}
+  ];
+
+  /* ---------- terrain: 3 background massifs + one derived per zone ---------- */
+  var MASSIFS=[
+    {cx:150,cy:170,rx:190,ry:130,rings:6,seed:11},
+    {cx:1060,cy:150,rx:210,ry:135,rings:7,seed:22},
+    {cx:600,cy:110,rx:250,ry:120,rings:6,seed:33}
+  ].concat(ZONES.map(function(z){
+    return {cx:z.x, cy:z.y+z.massif.dy, rx:z.massif.rx, ry:z.massif.ry, rings:z.massif.rings, seed:z.massif.seed};
+  }));
+
+  var terrain=document.getElementById('ccsm-terrain');
+  MASSIFS.forEach(function(m){
+    for(var i=0;i<m.rings;i++){
+      var t=i/(m.rings-1);                 // 0 outer → 1 inner (summit)
+      var rx=m.rx*(1-t*0.82), ry=m.ry*(1-t*0.82);
+      var seedRnd=mulberry(m.seed*97+i*13);
+      var p=document.createElementNS('http://www.w3.org/2000/svg','path');
+      // wob 0.10: ±5% wobble stays under the ~12% ring step so contours never cross
+      p.setAttribute('d',ringPath(m.cx,m.cy-t*m.ry*0.18,rx,ry,seedRnd,0.10));
+      var snow=t>0.72;                     // snow-capped summits
+      var fill, stroke;
+      if(snow){ fill='rgba(251,248,241,'+(0.10+t*0.22).toFixed(3)+')'; stroke='rgba(251,248,241,0.5)'; }
+      else    { fill='rgba(46,107,79,'+(0.05+t*0.14).toFixed(3)+')';   stroke=(i%2===0)?'var(--contour)':'var(--contour-strong)'; }
+      // colors via inline style: var() in presentation attributes is unreliable cross-engine
+      p.setAttribute('style','fill:'+fill+';stroke:'+stroke+';stroke-width:'+(snow?0.9:0.8));
+      terrain.appendChild(p);
+    }
+  });
+
+  var SVGNS='http://www.w3.org/2000/svg';
+  function el(n,a){var e=document.createElementNS(SVGNS,n);for(var k in a)e.setAttribute(k,a[k]);return e;}
+
+  // alpine sky: faint deterministic star/snow specks above the ridgelines
+  var sky=document.getElementById('ccsm-sky'), srnd=mulberry(7);
+  for(var si=0;si<46;si++){
+    var spx=srnd()*1200, spy=srnd()*280, spr=0.5+srnd()*1.1, spo=0.06+srnd()*0.16;
+    sky.appendChild(el('circle',{cx:spx.toFixed(1),cy:spy.toFixed(1),r:spr.toFixed(2),style:'fill:rgba(251,248,241,'+spo.toFixed(3)+')'}));
+  }
+
+  var reaches=document.getElementById('ccsm-reaches');
+  var pins=document.getElementById('ccsm-pins');
+
+  // time pill (non-interactive: lives in the reaches group)
+  function pill(x,y,txt){
+    var g=el('g',{});
+    var w=txt.length*6.6+16;
+    g.appendChild(el('rect',{x:x-w/2,y:y-9,width:w,height:18,rx:9,style:'fill:var(--gold)'}));
+    var t=el('text',{x:x,y:y+4,'text-anchor':'middle',class:'ccsm-ptime'});t.textContent=txt;g.appendChild(t);
+    return g;
+  }
+
+  // reach lines + pills (control point computed once; pill anchored ON the
+  // curve at t=0.62 so it hugs its own zone instead of crowding a neighbour's)
+  ZONES.forEach(function(z){
+    var cx2=(BASE.x+z.x)/2, cy2=(BASE.y+z.y)/2-40;
+    z._reach=el('path',{d:'M '+BASE.x+' '+BASE.y+' Q '+cx2+' '+cy2+' '+z.x+' '+z.y, class:'ccsm-reach'});
+    reaches.appendChild(z._reach);
+    if(z.time){
+      var t=0.62, u=1-t;
+      var bx=u*u*BASE.x + 2*u*t*cx2 + t*t*z.x;
+      var by=u*u*BASE.y + 2*u*t*cy2 + t*t*z.y;
+      z._pill=pill(bx,by,z.time);
+      reaches.appendChild(z._pill);
+    }
+  });
+
+  // base camp marker (gold diamond + pulsing glow)
+  pins.appendChild(el('circle',{cx:BASE.x,cy:BASE.y,r:46,fill:'url(#ccsmGlow)',class:'ccsm-basePulse'}));
+  var bc=el('g',{transform:'translate('+BASE.x+','+BASE.y+')',filter:'url(#ccsmSoft)'});
+  bc.appendChild(el('rect',{x:-11,y:-11,width:22,height:22,rx:3,transform:'rotate(45)',style:'fill:var(--gold);stroke:#0E241B;stroke-width:2'}));
+  pins.appendChild(bc);
+  var bl=el('text',{x:BASE.x,y:BASE.y+34,'text-anchor':'middle',class:'ccsm-plabel'});bl.textContent='Crazy Creek Resort';
+  pins.appendChild(bl);
+
+  /* ---------- card show/hide (desktop hover/focus; hidden entirely in narrow layouts) ---------- */
+  var card=document.getElementById('ccsm-card');
+  var stage=document.getElementById('ccsm-stage');
+  var activeEl=null, activeZone=null, hideTimer=null;
+
+  function isNarrow(){ return stage.clientWidth<=640; }   // container width, NOT window.innerWidth
+
+  function setHot(z,on){
+    var m=on?'add':'remove';
+    if(z._reach)z._reach.classList[m]('ccsm-hot');
+    if(z._pill)z._pill.classList[m]('ccsm-hot');
+  }
+  function clearActive(){
+    if(activeEl){activeEl.classList.remove('active');activeEl=null;}
+    if(activeZone){setHot(activeZone,false);activeZone=null;}
+  }
+  function hideNow(){ clearTimeout(hideTimer); card.classList.remove('show'); clearActive(); }
+  function scheduleHide(){ clearTimeout(hideTimer); hideTimer=setTimeout(hideNow,140); }
+  function cancelHide(){ clearTimeout(hideTimer); }
+
+  function show(z,g){
+    if(isNarrow()) return;                                // narrow layout: the zone list carries the data
+    cancelHide(); clearActive(); activeEl=g; g.classList.add('active');
+    activeZone=z; setHot(z,true);                          // light up this zone's route + pill
+    var meta='<div class="meta"><div><div class="k">From resort</div><div class="v">'+z.time+'</div></div>'+
+             '<div><div class="k">Snowpack</div><div class="v">'+z.snow+'</div></div></div>';
+    if(z.terr)meta+='<p class="terr">'+z.terr+'</p>';
+    if(!z.confirmed)meta+='<p class="tbc">Estimated — confirm figures with the resort.</p>';
+    card.innerHTML='<span class="tag">'+(z.confirmed?'Riding zone':'Riding zone · estimated')+'</span>'+
+                   '<h3>'+z.name+'</h3>'+meta;
+    // position near the pin, clamped to the stage using the card's REAL size
+    var box=stage.getBoundingClientRect(), sx=box.width/W, sy=box.height/H;
+    var px=z.x*sx, py=z.y*sy;
+    var cw=Math.min(280,box.width*0.74), ch=card.offsetHeight||190;
+    var left=px+22; if(left+cw>box.width-12)left=px-cw-22; if(left<12)left=12;
+    var top=py-40; if(top<12)top=12; if(top+ch>box.height-10)top=box.height-ch-10;
+    card.style.left=left+'px'; card.style.top=top+'px';
+    card.classList.add('show');
+  }
+
+  // moving the pointer onto the card keeps it open (WCAG 1.4.13 hoverable)
+  card.addEventListener('mouseenter',cancelHide);
+  card.addEventListener('mouseleave',scheduleHide);
+  card.addEventListener('click',function(e){e.stopPropagation();});
+  stage.addEventListener('click',hideNow);
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape')hideNow(); });
+
+  /* ---------- zone pins + accessible list ---------- */
+  var list=document.getElementById('ccsm-zonelist');
+  ZONES.forEach(function(z){
+    var aria=z.name+' — '+(z.confirmed?'':'estimated ')+z.time+' from the resort, '+z.snow+' snowpack'+
+             (z.terr?', '+z.terr.toLowerCase():'')+(z.confirmed?'':'; figures to confirm');
+    var g=el('g',{class:'ccsm-pin',tabindex:0,role:'button','aria-label':aria});
+    g.appendChild(el('circle',{class:'hit',cx:z.x,cy:z.y,r:30}));
+    g.appendChild(el('circle',{class:'ring',cx:z.x,cy:z.y,r:17,fill:'none',style:'stroke:var(--gold-soft);stroke-width:2'}));
+    var dotStyle='fill:var(--cream);stroke:var(--gold);stroke-width:3';
+    if(!z.confirmed)dotStyle='fill:rgba(14,36,27,.6);stroke:var(--gold);stroke-width:3;stroke-dasharray:3 3';
+    g.appendChild(el('circle',{class:'dot',cx:z.x,cy:z.y,r:9,style:dotStyle}));
+    var lbl=el('text',{x:z.x,y:z.y-18,'text-anchor':'middle',class:'ccsm-plabel'});lbl.textContent=z.name;
+    g.appendChild(lbl);
+    pins.appendChild(g);
+
+    var open=function(){show(z,g);};
+    g.addEventListener('mouseenter',open);
+    g.addEventListener('mouseleave',scheduleHide);
+    g.addEventListener('focus',open);
+    g.addEventListener('blur',scheduleHide);
+    g.addEventListener('click',function(e){e.stopPropagation();open();});
+    g.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();open();}});
+
+    // list item (SR channel everywhere; visible cards in narrow layouts)
+    var li=document.createElement('li');
+    li.innerHTML='<span class="zn">'+z.name+'</span>'+
+                 '<span class="zv">'+z.time+' from resort</span>'+
+                 '<span class="zv">'+z.snow+' snowpack</span>'+
+                 (z.terr?'<span class="zt">'+z.terr+'</span>':'')+
+                 (z.confirmed?'':'<span class="ze">Estimated — confirm figures with the resort.</span>');
+    list.appendChild(li);
+  });
+})();
+</script>
+</body>
+</html>
